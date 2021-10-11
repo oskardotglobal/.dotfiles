@@ -1,0 +1,7 @@
+[credential]
+	helper = store
+[user]
+	name = PixelAgent007
+	email = oskar.manhart@gmx.de
+[init]
+	defaultBranch = main
