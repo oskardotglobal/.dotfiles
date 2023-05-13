@@ -15,9 +15,6 @@ completions=()
 aliases=()
 plugins=(git)
 
-source "$OSH"/oh-my-bash.sh
-
-# nvm configuration
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+source "$OSH/oh-my-bash.sh"
+source "$HOME/.aliases"
+source "$HOME/.env"
