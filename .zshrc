@@ -11,4 +11,4 @@ plugins=("git")
 
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.aliases"
-source "$HOME/.src"
+source "$HOME/.env"
