@@ -14,4 +14,6 @@
     helper =
     helper = !$(which gh) auth git-credential
 [alias]
-	slog = log --graph --all --topo-order --pretty='format:%h %ai %s%d (%an)'
+    slog = log --graph --all --topo-order --pretty='format:%h %ai %s%d (%an)'
+[pull]
+    rebase = false
