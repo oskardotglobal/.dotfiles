@@ -1,4 +1,8 @@
 #!/bin/bash
 
 # Install oh-my-bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+if [ ! -d $HOME/.oh-my-bash ]; then
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+fi
+
+
