@@ -3,6 +3,6 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/oskar/Workspaces/Nix/ares";
+    flake = "/home/oskar/.dotfiles";
   };
 }
