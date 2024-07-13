@@ -1,0 +1,19 @@
+[user]
+	name = Oskar Manhart
+	email = 52569953+oskardotglobal@users.noreply.github.com
+[init]
+	defaultBranch = main
+[core]
+	abbrev = 8
+	eol = lf
+	autocrlf = false
+[credential "https://github.com"]
+    helper =
+    helper = !$(which gh) auth git-credential
+[credential "https://gist.github.com"]
+    helper =
+    helper = !$(which gh) auth git-credential
+[alias]
+    slog = log --graph --all --topo-order --pretty='format:%h %ai %s%d (%an)'
+[pull]
+    rebase = false

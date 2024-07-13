@@ -1,0 +1,41 @@
+#
+# Example of xxh config file `~/.config/xxh/config.xxhc` (`$XDG_CONFIG_HOME`)
+#
+# The `hosts` section contains host names or regular expression patterns to match hostname.
+#
+# If hostname in xxh command is matched with many sections the options will be added from all
+# sections and the options with same name will be overwritten by the last matched section.
+#
+# Options without argument should be added in appropriate yaml format but empty.
+# Example for `+if` mode below.
+#
+#--------------------------------------------------------------------------------------------------
+# Example `~/.config/xxh/config.xxhc` (`$XDG_CONFIG_HOME`)
+#--------------------------------------------------------------------------------------------------
+#hosts:
+#  myhost:                     # settings for myhost
+#    -p: 2222                    # set special port
+#    +s: xxh-shell-zsh           # use zsh shell
+#    +I: xxh-shell-zsh           # install xxh-shell before connect
+#    +I: xxh-plugin-zsh-ohmyzsh  # install xxh-plugin before connect
+#    +e:                         # simple environment variables
+#      - ZSH_THEME="clean"       # set ohmyzsh theme
+#      - MYENV="hello world"     # another environment variable
+#    +hhh: "~"                   # use user default home directory on host (/home/user instead of /home/user/.xxh)
+#
+#  "company-.*":        # for all hosts by regex pattern
+#    +s: xonsh            # use xonsh shell
+#    +hh: /tmp/.xxh       # use special xxh home directory (++host-xxh-home)
+#    +if:                 # force reinstall xxh every connect (++install-force)
+#    +hhr:                # remove host xxh home after disconnect (++host-xxh-home-remove)
+
+hosts:
+  ".*":
+    +s: xxh-shell-bash
+    +I: xxh-shell-bash
+    +I: xxh-plugin-bash-ohmybash
+    +I: xxh-plugin-prerun-dotfiles
+    +I: xxh-plugin-prerun-vim
+    +hhh: '~'
+    +e:
+      - OSH_THEME="clean"
