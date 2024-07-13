@@ -8,8 +8,11 @@
   services.xserver = {
     enable = true;
 
-    layout = "de";
-    xkbVariant = "nodeadkeys";
+    xkb = {
+      layout = "de";
+      variant = "nodeadkeys";
+    };
+    
     videoDrivers = ["nvidia"];
 
     displayManager.gdm = {
@@ -18,14 +21,14 @@
     };
 
     desktopManager.gnome.enable = true;
+  };
 
-    libinput = {
-      enable = true;
+  services.libinput = {
+    enable = true;
 
-      # disabling mouse acceleration
-      mouse = {
-        accelProfile = "flat";
-      };
+    # disabling mouse acceleration
+    mouse = {
+      accelProfile = "flat";
     };
   };
 
