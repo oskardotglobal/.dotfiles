@@ -1,0 +1,64 @@
+--- linux.nix.orig	2024-07-13 12:30:56.185571097 +0200
++++ linux.nix	2024-07-13 12:37:34.790427046 +0200
+@@ -41,6 +41,10 @@
+   libayatana-appindicator,
+   libdbusmenu,
+   libGL,
++  util-linux,
++  perl,
++  unzip,
++  zip,
+   # High-DPI support: Spotify's --force-device-scale-factor argument
+   # not added if `null`, otherwise, should be a number.
+   deviceScaleFactor ? null,
+@@ -119,20 +123,27 @@
+     # This is the next-best thing, since we're not allowed to re-distribute
+     # spotify ourselves:
+     # https://community.spotify.com/t5/Desktop-Linux/Redistribute-Spotify-on-Linux-Distributions/td-p/1695334
+-    src = fetchurl {
+-      name = "spotify-${version}-${rev}.snap";
+-      url = "https://api.snapcraft.io/api/v1/snaps/download/pOBIoZ2LrCB3rDohMxoYGnbN14EHOgD7_${rev}.snap";
+-      hash = "sha512-k7aw1QM3NCFkm0tXcHgYyeEBagGFpCL6JdWlFruJszPloiCy5vopOsD4PdqyiSEs0rSUP0rLxX2UBs3XuI5cUA==";
+-    };
++    srcs = [
++      (fetchurl {
++        name = "spotify-${version}-${rev}.snap";
++        url = "https://api.snapcraft.io/api/v1/snaps/download/pOBIoZ2LrCB3rDohMxoYGnbN14EHOgD7_${rev}.snap";
++        hash = "sha512-k7aw1QM3NCFkm0tXcHgYyeEBagGFpCL6JdWlFruJszPloiCy5vopOsD4PdqyiSEs0rSUP0rLxX2UBs3XuI5cUA==";
++      })
++      (fetchurl {
++        url = "https://spotx-official.github.io/SpotX-Bash/spotx.sh";
++        hash = "sha256-W1ljnle+XQKOW19HBUp4/GgT0kKtwD3WKRv6GczkI3U=";
++      })
++    ];
+ 
+-    nativeBuildInputs = [wrapGAppsHook3 makeShellWrapper squashfsTools];
++    nativeBuildInputs = [wrapGAppsHook3 makeShellWrapper squashfsTools wrapGAppsHook3 makeShellWrapper squashfsTools util-linux perl unzip zip];
+ 
+     dontStrip = true;
+     dontPatchELF = true;
+ 
+     unpackPhase = ''
+       runHook preUnpack
+-      unsquashfs "$src" '/usr/share/spotify' '/usr/bin/spotify' '/meta/snap.yaml'
++      unsquashfs "$(echo $srcs | awk '{print $1}')" '/usr/share/spotify' '/usr/bin/spotify' '/meta/snap.yaml'
++      patchShebangs --build "$(echo $srcs | awk '{print $2}')"
+       cd squashfs-root
+       if ! grep -q 'grade: stable' meta/snap.yaml; then
+         # Unfortunately this check is not reliable: At the moment (2018-07-26) the
+@@ -149,6 +160,7 @@
+         echo "You probably chose the wrong revision or forgot to update the nix version."
+         exit 1
+       fi
++
+       runHook postUnpack
+     '';
+ 
+@@ -206,6 +218,7 @@
+           "$out/share/icons/hicolor/$ixi/apps/spotify-client.png"
+       done
+ 
++      bash "$(echo $srcs | awk '{print $2}')" -f -P "$out/share/spotify"
+       runHook postInstall
+     '';
+ 
