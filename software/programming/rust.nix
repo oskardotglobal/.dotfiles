@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    libgcc
     rustup
     (
       rust-bin.selectLatestNightlyWith (
