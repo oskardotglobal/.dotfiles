@@ -1,4 +1,4 @@
-{...}: {
+{inputs, ...}: {
   imports = [
     ./hardware
     ./hardware/boot.nix
@@ -6,6 +6,13 @@
     ./system
     ./software
   ];
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = {inherit inputs;};
+  home-manager.backupFileExtension = "backup";
+
+  home-manager.users.oskar = import ./home;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

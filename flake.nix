@@ -3,6 +3,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nur.url = "github:nix-community/NUR";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-citizen.url = "github:LovingMelody/nix-citizen";
 
@@ -34,6 +39,7 @@
             config.allowUnfree = true;
 
             overlays = [
+              self.inputs.nur.overlay
               self.inputs.rust-overlay.overlays.default
               (final: prev: {
                 spotify = prev.callPackage ./packages/spotify {};
@@ -48,6 +54,7 @@
         };
 
         modules = [
+          inputs.home-manager.nixosModules.home-manager
           ./configuration.nix
         ];
       };

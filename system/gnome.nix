@@ -12,7 +12,7 @@
       layout = "de";
       variant = "nodeadkeys";
     };
-    
+
     videoDrivers = ["nvidia"];
 
     displayManager.gdm = {

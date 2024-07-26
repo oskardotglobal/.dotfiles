@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./rust.nix
+    # ./rust.nix
     ./docker.nix
   ];
 

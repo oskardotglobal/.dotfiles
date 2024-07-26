@@ -7,7 +7,6 @@
     ./ssh.nix
     ./syncthing.nix
     ./zsh.nix
-    ./firefox.nix
 
     ./games
     ./nix
