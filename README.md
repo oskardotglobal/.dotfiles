@@ -14,7 +14,7 @@ Simply add this repo as an input and use the overlay `spotx` it outputs like:
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     oskars-dotfiles = {
-      url = "github:oskardotglobal/.dotfiles";
+      url = "github:oskardotglobal/.dotfiles/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -47,6 +47,6 @@ In your `configuration.nix`
 
 ```nix 
 {...}: {
-  nixpkgs.overlays = [import (builtins.fetchTarball "https://github.com/oskardotglobal/.dotfiles/archive/main.tar.gz")];
+  nixpkgs.overlays = [import (builtins.fetchTarball "https://github.com/oskardotglobal/.dotfiles/archive/nix.tar.gz")];
 }
 ```
