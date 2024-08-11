@@ -1,4 +1,8 @@
-{pkgs, config, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   theme = pkgs.stdenv.mkDerivation {
     name = "arcwtf";
     src = pkgs.fetchgit {

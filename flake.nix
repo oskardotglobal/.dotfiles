@@ -25,7 +25,9 @@
     nixpkgs,
     nixpkgs-unstable,
     ...
-  } @ inputs: {
+  } @ inputs: rec {
+    overlays.spotx = import ./default.nix;
+
     nixosConfigurations.ares = let
       system = "x86_64-linux";
     in
@@ -41,9 +43,7 @@
             overlays = [
               self.inputs.nur.overlay
               self.inputs.rust-overlay.overlays.default
-              (final: prev: {
-                spotify = prev.callPackage ./packages/spotify {};
-              })
+              overlays.spotx
             ];
           };
 
