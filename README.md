@@ -46,7 +46,8 @@ Even though flakes are recommended, this will work without flakes too.
 In your `configuration.nix`
 
 ```nix 
-{...}: {
+{pkgs, ...}: {
   nixpkgs.overlays = [import (builtins.fetchTarball "https://github.com/oskardotglobal/.dotfiles/archive/nix.tar.gz")];
+  environment.systemPackages = [pkgs.spotify];
 }
 ```
