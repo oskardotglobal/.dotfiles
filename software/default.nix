@@ -23,5 +23,7 @@
     spotify
     kdePackages.kdenlive
     pkgs-unstable.freerdp3
+    
+    gparted
   ];
 }
