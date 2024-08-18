@@ -7,8 +7,8 @@
     name = "arcwtf";
     src = pkgs.fetchgit {
       url = "https://github.com/KiKaraage/ArcWTF";
-      rev = "73ccc7bd3c8dd130d67746c413ca5cf6a57a9f72";
-      hash = "sha256-JzZs0qFaFYaY24o5incgl8u4DGkKASan+b55N+9Jwag=";
+      rev = "885fa7d5e730e3937e3a8b7e966a36ff2421c744";
+      hash = "sha256-QUsb9XsP3VT0wFCUJGMHkF/AtgCYt5xIdvkLvqg90Xs=";
     };
 
     installPhase = ''
