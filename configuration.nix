@@ -1,8 +1,6 @@
 {inputs, ...}: {
   imports = [
     ./hardware
-    ./hardware/boot.nix
-
     ./system
     ./software
   ];
