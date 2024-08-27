@@ -3,8 +3,8 @@ final: prev: {
     srcs = [
       old.src
       (prev.fetchurl {
-        url = "https://github.com/SpotX-Official/SpotX-Bash/raw/392aee45d9d22dd5d8404e1c5f5fed45890a4619/spotx.sh";
-        hash = "sha256-ekWDilj1v/9P0Jlos2ZnAQk7IyfrX/rhcmSMQIA23wo=";
+        url = "https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/67e2e1db68b082c57398602720886489781e7dd3/spotx.sh";
+        hash = "sha256-P4sCZcX4K7U/5Ha6EfqTvAMMU0ex5/3vSRLA/RfZaD0=";
       })
     ];
 
