@@ -9,14 +9,17 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    wine
     gamemode
-    nix-gaming.packages.${system}.osu-lazer-bin
-    nix-citizen.packages.${system}.star-citizen
+    lutris
+
+    prismlauncher
+
+    path-of-building
+
+    # nix-gaming.packages.${system}.osu-lazer-bin
+
     nix-citizen.packages.${system}.star-citizen-helper
     nix-citizen.packages.${system}.lug-helper
-
-    wine
-    lutris
-    prismlauncher
   ];
 }
