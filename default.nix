@@ -8,24 +8,30 @@ final: prev: {
       })
     ];
 
-    nativeBuildInputs = old.nativeBuildInputs ++ [prev.util-linux prev.perl prev.unzip prev.zip];
+    nativeBuildInputs = old.nativeBuildInputs ++ [prev.util-linux prev.perl prev.unzip prev.zip prev.curl];
 
     unpackPhase =
       builtins.replaceStrings
       [
         "unsquashfs \"$src\" '/usr/share/spotify' '/usr/bin/spotify' '/meta/snap.yaml'"
-        "runHook postInstall"
       ]
       [
         ''
           unsquashfs "$(echo $srcs | awk '{print $1}')" '/usr/share/spotify' '/usr/bin/spotify' '/meta/snap.yaml'
           patchShebangs --build "$(echo $srcs | awk '{print $2}')"
         ''
+      ]
+      old.unpackPhase;
+
+    installPhase =
+      builtins.replaceStrings
+      ["runHook postInstall"]
+      [
         ''
           bash "$(echo $srcs | awk '{print $2}')" -f -P "$out/share/spotify"
           runHook postInstall
         ''
       ]
-      old.unpackPhase;
+      old.installPhase;
   });
 }
