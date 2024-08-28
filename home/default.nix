@@ -2,6 +2,7 @@
   imports = [
     ./git.nix
     ./firefox.nix
+    ./nvim.nix
   ];
 
   programs.home-manager.enable = true;
