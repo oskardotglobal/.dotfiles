@@ -23,6 +23,7 @@
     pre-commit
     unzip
     zip
+    ripgrep
 
     jdk21
     bun
