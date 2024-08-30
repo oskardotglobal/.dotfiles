@@ -25,5 +25,8 @@
     pkgs-unstable.freerdp3
 
     gparted
+
+    winapps
+    winapps-launcher
   ];
 }

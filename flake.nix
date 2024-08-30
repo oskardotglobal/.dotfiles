@@ -30,6 +30,11 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    winapps = {
+      url = "github:winapps-org/winapps/feat-nix-packaging";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -38,6 +43,7 @@
     nur,
     rust-overlay,
     zen-browser,
+    winapps,
     ...
   } @ inputs: rec {
     overlays.spotx = import ./default.nix;
@@ -60,6 +66,9 @@
               overlays.spotx
               (final: prev: {
                 zen-browser = zen-browser.packages."${system}".specific;
+
+                winapps = winapps.packages."${system}".winapps;
+                winapps-launcher = winapps.packages."${system}".winapps-launcher;
               })
             ];
           };
