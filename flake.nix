@@ -37,7 +37,7 @@
     };
 
     winapps = {
-      url = "github:winapps-org/winapps/feat-nix-packaging";
+      url = "github:winapps-org/winapps/26a2f13815b555752b5f2cae6007a85e46d98880";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

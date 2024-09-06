@@ -555,17 +555,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1725028367,
-        "narHash": "sha256-5ePQVUUyBuz08TioJ8uVXI3k88+ALCcrgIZO2x3TmxU=",
+        "lastModified": 1725708635,
+        "narHash": "sha256-zOX+aqGJrH8Q0deXkS6Pb+XBGcf+WJKwumcN6C3Er3A=",
         "owner": "winapps-org",
         "repo": "winapps",
-        "rev": "45ded93e1d7b7acf69acfea9487a3d40a13d790a",
+        "rev": "26a2f13815b555752b5f2cae6007a85e46d98880",
         "type": "github"
       },
       "original": {
         "owner": "winapps-org",
-        "ref": "feat-nix-packaging",
         "repo": "winapps",
+        "rev": "26a2f13815b555752b5f2cae6007a85e46d98880",
         "type": "github"
       }
     },
