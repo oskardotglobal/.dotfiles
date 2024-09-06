@@ -1,3 +1,7 @@
-#!/usr/bin/env bash
+#!/run/current-system/sw/bin/bash
+
+export PATH="/run/current-system/sw/bin:$PATH"
+
 mdadm --stop /dev/md0
 xargs losetup -d < /root/.win10-loop-devices
+
