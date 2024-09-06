@@ -1,12 +1,9 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./ssh.nix
     ./syncthing.nix
     ./zsh.nix
+    ./winapps.nix
 
     ./games
     ./nix
@@ -22,7 +19,6 @@
     bitwarden
     spotify
     kdePackages.kdenlive
-    pkgs-unstable.freerdp3
 
     gparted
 

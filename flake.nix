@@ -5,29 +5,34 @@
 
     nur.url = "github:nix-community/NUR";
 
-    zen-browser = {
-      url = "github:MarceColl/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     nix-citizen = {
       url = "github:LovingMelody/nix-citizen";
       inputs.nix-gaming.follows = "nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -43,7 +48,9 @@
     nur,
     rust-overlay,
     zen-browser,
+    stylix,
     winapps,
+    home-manager,
     ...
   } @ inputs: rec {
     overlays.spotx = import ./default.nix;
@@ -54,7 +61,7 @@
       nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
-          inherit (inputs) nixpkgs-unstable nix-citizen nix-gaming;
+          inherit (inputs) nix-citizen nix-gaming;
 
           pkgs = import nixpkgs {
             inherit system;
@@ -80,7 +87,8 @@
         };
 
         modules = [
-          inputs.home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
           ./configuration.nix
         ];
       };

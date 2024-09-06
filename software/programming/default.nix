@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   imports = [
     # ./rust.nix
     ./docker.nix
@@ -15,7 +19,7 @@
     jetbrains.idea-ultimate
 
     neovim
-    zed-editor
+    pkgs-unstable.zed-editor
 
     gitFull
     just
