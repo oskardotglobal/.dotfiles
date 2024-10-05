@@ -11,6 +11,11 @@
     ./programming
   ];
 
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
   environment.systemPackages = with pkgs; [
     vesktop
     element-desktop
@@ -22,7 +27,7 @@
 
     gparted
 
-    winapps
-    winapps-launcher
+    yt-dlp
+    qbittorrent
   ];
 }

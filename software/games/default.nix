@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   nix-gaming,
   nix-citizen,
   ...
@@ -11,11 +12,14 @@
   environment.systemPackages = with pkgs; [
     wine
     gamemode
+    gamescope
     lutris
+
+    ryujinx
 
     prismlauncher
 
-    path-of-building
+    pkgs-unstable.path-of-building
 
     nix-gaming.packages.${system}.osu-lazer-bin
 

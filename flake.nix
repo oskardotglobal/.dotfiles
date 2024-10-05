@@ -37,7 +37,7 @@
     };
 
     winapps = {
-      url = "github:winapps-org/winapps/26a2f13815b555752b5f2cae6007a85e46d98880";
+      url = "github:winapps-org/winapps/7f3cdcee4d209e2187d006fa6846f3d332f6fc77";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

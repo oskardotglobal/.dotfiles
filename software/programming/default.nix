@@ -18,6 +18,8 @@
     jetbrains.phpstorm
     jetbrains.idea-ultimate
 
+    android-studio
+
     neovim
     pkgs-unstable.zed-editor
 
@@ -28,6 +30,7 @@
     unzip
     zip
     ripgrep
+    wakatime
 
     jdk21
     bun

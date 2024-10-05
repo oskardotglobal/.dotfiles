@@ -3,6 +3,7 @@
     ./git.nix
     ./firefox.nix
     ./nvim.nix
+    ./tmux.nix
   ];
 
   programs.home-manager.enable = true;
