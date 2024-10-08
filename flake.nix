@@ -53,7 +53,10 @@
     home-manager,
     ...
   } @ inputs: rec {
-    overlays.spotx = import ./default.nix;
+    overlays = {
+      spotx = import ./default.nix;
+      protonup-qt = import ./overlays/protonup-qt.nix;
+    };
 
     nixosConfigurations.ares = let
       system = "x86_64-linux";
@@ -71,6 +74,7 @@
               nur.overlay
               rust-overlay.overlays.default
               overlays.spotx
+              overlays.protonup-qt
               (final: prev: {
                 zen-browser = zen-browser.packages."${system}".specific;
 
@@ -87,6 +91,20 @@
         };
 
         modules = [
+          ({...}: {
+            # make `nix run nixpkgs#package` use the same nixpkgs as the one used by this flake.
+            nix.registry.nixpkgs.flake = nixpkgs;
+
+            # remove nix-channel related tools & configs, we use flakes instead.
+            nix.channel.enable = false;
+
+            # Keep nixPath so we don't have to use flakes for dev shells
+            nix.nixPath = [
+              "nixpkgs=${nixpkgs}"
+              "rust-overlay=${rust-overlay}"
+            ];
+          })
+
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           ./configuration.nix

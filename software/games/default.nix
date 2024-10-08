@@ -12,8 +12,8 @@
   environment.systemPackages = with pkgs; [
     wine
     gamemode
-    gamescope
     lutris
+    protonup-qt
 
     ryujinx
 
