@@ -11,8 +11,10 @@
     ];
 
     extraConfig = ''
-      set-option -sa terminal-overrides ",xterm*:Tc"
       set -g mouse on
+
+      set -g default-terminal "alacritty"
+      set-option -sa terminal-overrides ",alacritty*:Tc"
 
       unbind C-b
       set -g prefix C-Space

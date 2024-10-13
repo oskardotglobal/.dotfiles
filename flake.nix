@@ -56,6 +56,7 @@
     overlays = {
       spotx = import ./default.nix;
       protonup-qt = import ./overlays/protonup-qt.nix;
+      git-blame-someone-else = import ./overlays/git-blame-someone-else.nix;
     };
 
     nixosConfigurations.ares = let
@@ -75,6 +76,7 @@
               rust-overlay.overlays.default
               overlays.spotx
               overlays.protonup-qt
+              overlays.git-blame-someone-else
               (final: prev: {
                 zen-browser = zen-browser.packages."${system}".specific;
 
@@ -91,17 +93,18 @@
         };
 
         modules = [
-          ({...}: {
+          ({inputs, ...}: {
             # make `nix run nixpkgs#package` use the same nixpkgs as the one used by this flake.
-            nix.registry.nixpkgs.flake = nixpkgs;
+            nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
             # remove nix-channel related tools & configs, we use flakes instead.
             nix.channel.enable = false;
 
             # Keep nixPath so we don't have to use flakes for dev shells
             nix.nixPath = [
-              "nixpkgs=${nixpkgs}"
-              "rust-overlay=${rust-overlay}"
+              "nixpkgs=${inputs.nixpkgs}"
+              "nixpkgs-unstable=${inputs.nixpkgs-unstable}"
+              "rust-overlay=${inputs.rust-overlay}"
             ];
           })
 

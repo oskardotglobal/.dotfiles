@@ -4,6 +4,7 @@
     ./firefox.nix
     ./nvim.nix
     ./tmux.nix
+    ./alacritty.nix
   ];
 
   programs.home-manager.enable = true;

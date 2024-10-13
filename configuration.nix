@@ -1,4 +1,10 @@
-{inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: let
+  username = "oskar";
+in rec {
   imports = [
     ./hardware
     ./system
@@ -10,7 +16,16 @@
   home-manager.extraSpecialArgs = {inherit inputs;};
   home-manager.backupFileExtension = "backup";
 
-  home-manager.users.oskar = import ./home;
+  home-manager.users."${username}" = import ./home;
+
+  systemd.services."home-manager-${username}".serviceConfig.ExecStartPre = let
+    script = pkgs.writeScript "hm-${username}-pre-start" ''
+      #!${pkgs.bash}/bin/bash
+
+      ${pkgs.findutils}/bin/find /home/${username}/.mozilla/firefox/0 -type f -iname "*.${home-manager.backupFileExtension}" \
+        | ${pkgs.findutils}/bin/xargs -i rm "{}"
+    '';
+  in "${script}";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

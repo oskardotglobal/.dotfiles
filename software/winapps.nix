@@ -8,8 +8,6 @@
     dnsmasq
     iptables
     mdadm
-
-    OVMFFull
   ];
 
   programs.virt-manager.enable = true;

@@ -8,11 +8,11 @@
     ./docker.nix
   ];
 
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+  ];
+
   environment.systemPackages = with pkgs; [
-    jetbrains-mono
-
-    alacritty
-
     jetbrains.jdk
     jetbrains.rust-rover
     jetbrains.phpstorm
@@ -24,6 +24,7 @@
     pkgs-unstable.zed-editor
 
     gitFull
+    git-blame-someone-else
     just
     zoxide
     pre-commit
