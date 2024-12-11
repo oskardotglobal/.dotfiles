@@ -48,8 +48,7 @@
     ...
   } @ inputs: rec {
     overlays = {
-      spotx = import ./default.nix;
-      protonup-qt = import ./overlays/protonup-qt.nix;
+      spotx = import ./overlays/spotx.nix;
       git-blame-someone-else = import ./overlays/git-blame-someone-else.nix;
     };
 
@@ -70,7 +69,6 @@
               nur.overlay
               rust-overlay.overlays.default
               overlays.spotx
-              overlays.protonup-qt
               overlays.git-blame-someone-else
               (final: prev: {
                 zen-browser = prev.lib.makeOverridable zen-browser.packages."${system}".specific;

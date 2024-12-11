@@ -12,7 +12,6 @@
     wine
     gamemode
     lutris
-    protonup-qt
 
     ryujinx
 
