@@ -13,6 +13,7 @@
   programs.virt-manager.enable = true;
   services.qemuGuest.enable = true;
 
+  /*
   systemd.services.virtual-disk-md0 = {
     enable = true;
     serviceConfig = {
@@ -25,6 +26,7 @@
 
     wantedBy = ["multi-user.target"];
   };
+  */
 
   virtualisation.libvirtd = {
     enable = true;
