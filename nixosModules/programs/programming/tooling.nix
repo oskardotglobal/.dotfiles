@@ -1,9 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    # ./rust.nix
-    ./docker.nix
-  ];
-
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
@@ -14,8 +9,6 @@
     jetbrains.phpstorm
     jetbrains.idea-ultimate
     jetbrains.datagrip
-
-    android-studio
 
     neovim
     zed-editor

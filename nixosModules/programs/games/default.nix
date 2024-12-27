@@ -4,10 +4,6 @@
   nix-citizen,
   ...
 }: {
-  imports = [
-    ./steam.nix
-  ];
-
   environment.systemPackages = with pkgs; [
     wine
     gamemode

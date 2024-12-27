@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./netbird.nix
-  ];
-
   environment.systemPackages = with pkgs; [
     vscode
 
@@ -13,4 +9,6 @@
 
     forgejo-runner
   ];
+
+  services.netbird.enable = true;
 }

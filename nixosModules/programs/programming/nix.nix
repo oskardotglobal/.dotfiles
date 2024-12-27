@@ -1,11 +1,8 @@
 {pkgs, ...}: {
-  imports = [
-    ./nh.nix
-    ./direnv.nix
-  ];
-
   environment.systemPackages = with pkgs; [
     alejandra
+    nixfmt-rfc-style
+    statix
     nil
   ];
 }
