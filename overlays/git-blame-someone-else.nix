@@ -11,8 +11,11 @@ final: prev: {
       hash = "sha256-xraG1dR5Q8oDlUXARgh0ql8eRwH4bJWblJFjH1wJcys=";
     };
 
-    nativeBuildInputs = [prev.makeWrapper];
-    buildInputs = [prev.gitFull prev.perl];
+    nativeBuildInputs = [ prev.makeWrapper ];
+    buildInputs = [
+      prev.gitFull
+      prev.perl
+    ];
 
     installPhase = ''
       runHook preInstall

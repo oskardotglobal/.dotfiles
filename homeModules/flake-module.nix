@@ -1,6 +1,8 @@
-{self, ...}: let
+{ self, ... }:
+let
   inherit (self) mkModules;
-in {
+in
+{
   flake.homeModules = mkModules {
     alacritty = import ./alacritty.nix;
     firefox = import ./firefox.nix;

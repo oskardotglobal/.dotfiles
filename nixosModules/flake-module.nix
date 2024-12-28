@@ -1,6 +1,8 @@
-{self, ...}: let
+{ self, ... }:
+let
   inherit (self) mkModules;
-in {
+in
+{
   flake.nixosModules' = mkModules {
     nixpkgs = import ./nixpkgs.nix;
 
