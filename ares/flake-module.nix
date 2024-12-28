@@ -3,7 +3,6 @@
   inputs,
   ...
 }: {
-  perSystem = {...}: {};
   flake.nixosConfigurations.ares = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = rec {
       system = "x86_64-linux";
@@ -11,7 +10,7 @@
       inherit inputs;
       inherit (inputs) nix-citizen nix-gaming;
 
-      inherit (self) nixosModules homeModules;
+      inherit (self) homeModules;
 
       pkgs = import inputs.nixpkgs {
         inherit system;
@@ -19,7 +18,7 @@
         config.permittedInsecurePackages = ["qbittorrent-4.6.4" "electron-25.9.0"];
 
         overlays = [
-          inputs.nur.overlays.default
+          inputs.nur.overlay
           inputs.rust-overlay.overlays.default
 
           self.overlays.spotx
@@ -37,7 +36,12 @@
       };
     };
 
-    modules = [
+    modules = with self; [
+      nixosModules'.hardware.superdrive
+      nixosModules'.system
+      nixosModules'.programs
+      nixosModules'.nixpkgs
+
       inputs.home-manager.nixosModules.home-manager
       ./configuration.nix
     ];

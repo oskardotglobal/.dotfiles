@@ -8,11 +8,6 @@
   username = "oskar";
 in rec {
   imports = [
-    nixosModules.hardware.superdrive
-    nixosModules.system
-    nixosModules.programs
-
-    nixosModules.nixpkgs
     ./hardware
   ];
 

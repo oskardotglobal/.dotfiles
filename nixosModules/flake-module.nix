@@ -1,8 +1,7 @@
 {self, ...}: let
   inherit (self) mkModules;
 in {
-  perSystem = {...}: {};
-  flake.nixosModules = mkModules {
+  flake.nixosModules' = mkModules {
     nixpkgs = import ./nixpkgs.nix;
 
     hardware = mkModules {
@@ -29,7 +28,6 @@ in {
         tooling = import ./programs/programming/tooling.nix;
         docker = import ./programs/programming/docker.nix;
         nix = import ./programs/programming/nix.nix;
-        rust = import ./programs/programming/rust.nix;
         work = import ./programs/programming/work.nix;
       };
 
