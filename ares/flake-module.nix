@@ -41,10 +41,27 @@
     };
 
     modules = with self; [
-      nixosModules'.hardware.superdrive
-      nixosModules'.system
-      nixosModules'.programs
       nixosModules'.nixpkgs
+      nixosModules'.programs.direnv
+      nixosModules'.programs.games.default
+      nixosModules'.programs.games.steam
+      nixosModules'.programs.nh
+      nixosModules'.programs.other
+      nixosModules'.programs.programming.docker
+      nixosModules'.programs.programming.nix
+      nixosModules'.programs.programming.tooling
+      nixosModules'.programs.programming.work
+      nixosModules'.programs.ssh
+      nixosModules'.programs.syncthing
+      nixosModules'.programs.winapps
+      nixosModules'.programs.zsh
+      nixosModules'.system.cups
+      nixosModules'.system.gnome
+      nixosModules'.system.l10n
+      nixosModules'.system.networking
+      nixosModules'.system.sound
+      nixosModules'.system.swapfile
+      nixosModules'.system.user
 
       inputs.home-manager.nixosModules.home-manager
       ./configuration.nix
