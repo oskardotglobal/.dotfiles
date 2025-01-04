@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -21,7 +22,7 @@
       variant = "nodeadkeys";
     };
 
-    videoDrivers = ["nvidia"];
+    videoDrivers = [ "nvidia" ];
 
     displayManager.gdm = {
       enable = true;
@@ -56,6 +57,6 @@
     atomix # puzzle game
   ];
 
-  services.udev.packages = with pkgs; [gnome-settings-daemon];
-  environment.systemPackages = with pkgs; [gnomeExtensions.appindicator];
+  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
+  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
 }

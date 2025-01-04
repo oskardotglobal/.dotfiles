@@ -37,8 +37,9 @@
     };
   };
 
-  outputs = inputs @ {flake-parts, ...}:
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./nixosModules/flake-module.nix
         ./homeModules/flake-module.nix
@@ -47,10 +48,31 @@
         ./hermes/flake-module.nix
       ];
 
-      systems = ["x86_64-linux" "aarch64-darwin"];
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
+
+      perSystem =
+        { pkgs, ... }:
+        {
+          formatter = pkgs.nixfmt-rfc-style;
+        };
 
       flake = {
-        mkModules = modules: (modules // {__functor = self: {...}: {imports = builtins.attrValues self;};});
+        mkModules =
+          modules:
+          (
+            modules
+            // {
+              __functor =
+                self:
+                { ... }:
+                {
+                  imports = builtins.attrValues self;
+                };
+            }
+          );
 
         overlays = {
           spotx = import ./overlays/spotx.nix;

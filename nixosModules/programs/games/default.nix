@@ -3,7 +3,8 @@
   nix-gaming,
   nix-citizen,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     wine
     gamemode

@@ -2,17 +2,22 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   nix = {
     # remove nix-channel related tools & configs, we use flakes instead.
     channel.enable = false;
 
     # Keep nixPath so we don't have to use flakes for dev shells
-    nixPath = ["nixpkgs=${inputs.nixpkgs-darwin}"];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs-darwin}" ];
 
     settings = {
-      experimental-features = ["nix-command" "flakes" "pipe-operators"];
-      trusted-users = ["@wheel"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "pipe-operators"
+      ];
+      trusted-users = [ "@wheel" ];
 
       substituters = [
         "https://nix-gaming.cachix.org"

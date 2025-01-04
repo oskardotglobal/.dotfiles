@@ -1,8 +1,11 @@
-{self, ...}: let
+{ self, ... }:
+let
   inherit (self) mkModules;
-in {
-  perSystem = {...}: {};
+in
+{
+  perSystem = { ... }: { };
   flake.darwinModules = mkModules {
     nixpkgs = import ./nixpkgs.nix;
+    programming = import ./programming.nix;
   };
 }

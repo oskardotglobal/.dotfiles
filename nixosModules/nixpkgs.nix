@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   nix = {
     # make `nix run nixpkgs#package` use the same nixpkgs as the one used by this flake.
     registry.nixpkgs.flake = inputs.nixpkgs;
@@ -14,8 +15,12 @@
     ];
 
     settings = {
-      experimental-features = ["nix-command" "flakes" "pipe-operators"];
-      trusted-users = ["@wheel"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "pipe-operators"
+      ];
+      trusted-users = [ "@wheel" ];
 
       substituters = [
         "https://nix-gaming.cachix.org"

@@ -2,8 +2,9 @@
   self,
   inputs,
   ...
-}: {
-  perSystem = {...}: {};
+}:
+{
+  perSystem = { ... }: { };
   flake.nixosConfigurations.ares = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = rec {
       system = "x86_64-linux";
@@ -16,7 +17,10 @@
       pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        config.permittedInsecurePackages = ["qbittorrent-4.6.4" "electron-25.9.0"];
+        config.permittedInsecurePackages = [
+          "qbittorrent-4.6.4"
+          "electron-25.9.0"
+        ];
 
         overlays = [
           inputs.nur.overlays.default

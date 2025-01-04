@@ -2,8 +2,9 @@
   self,
   inputs,
   ...
-}: {
-  perSystem = {...}: {};
+}:
+{
+  perSystem = { ... }: { };
   flake.darwinConfigurations."Air-von-Oskar" = inputs.nix-darwin.lib.darwinSystem {
     specialArgs = rec {
       system = "aarch64-darwin";
@@ -15,11 +16,12 @@
         inherit system;
         config.allowUnfree = true;
 
-        overlays = [];
+        overlays = [ ];
       };
     };
 
     modules = [
+      inputs.home-manager.darwinModules.home-manager
       ./configuration.nix
     ];
   };

@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   theme = pkgs.stdenvNoCC.mkDerivation rec {
     pname = "firefox-gnome-theme";
     version = "129";
@@ -29,7 +30,8 @@
       platforms = platforms.all;
     };
   };
-  /*
+in
+/*
     pkgs.stdenv.mkDerivation {
     name = "arcwtf";
     src = pkgs.fetchgit {
@@ -42,8 +44,8 @@
       cp -v -r $src $out/
     '';
   };
-  */
-in {
+*/
+{
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-devedition;
@@ -63,20 +65,20 @@ in {
 
       engines = {
         "NixOS Packages" = {
-          urls = [{template = "https://search.nixos.org/packages?query={searchTerms}";}];
+          urls = [ { template = "https://search.nixos.org/packages?query={searchTerms}"; } ];
 
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = ["@pkgs"];
+          definedAliases = [ "@pkgs" ];
         };
 
         "NixOS Options" = {
-          urls = [{template = "https://search.nixos.org/options?query={searchTerms}";}];
+          urls = [ { template = "https://search.nixos.org/options?query={searchTerms}"; } ];
 
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = ["@opts"];
+          definedAliases = [ "@opts" ];
         };
 
-        "Oskar's 4get".urls = [{template = "https://search.oskar.global/web?s={searchTerms}";}];
+        "Oskar's 4get".urls = [ { template = "https://search.oskar.global/web?s={searchTerms}"; } ];
       };
     };
 
