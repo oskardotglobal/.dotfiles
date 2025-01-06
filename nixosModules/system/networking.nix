@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   networking.hostName = "ares";
   networking.networkmanager.enable = true;
 

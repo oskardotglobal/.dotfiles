@@ -5,5 +5,6 @@
     nixfmt-rfc-style
     statix
     nil
+    devenv
   ];
 }

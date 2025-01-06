@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  boot.supportedFilesystems = [ "ntfs" ];
+
   environment.systemPackages = with pkgs; [
     ntfs3g
   ];
@@ -7,7 +9,7 @@
   fileSystems."/run/media/oskar/fatboi" = {
     label = "fatboi";
     device = "/dev/sda2";
-    fsType = "ntfs";
+    fsType = "ntfs-3g";
     options = [
       "nofail"
       "exec"
@@ -19,6 +21,7 @@
       "u+rwx"
       "g+rwx"
       "o+rwx"
+      "rw"
     ];
   };
 }
