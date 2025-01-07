@@ -1,14 +1,10 @@
-{ self, ... }:
-let
-  inherit (self) mkModules;
-in
+_:
 {
-  perSystem = { ... }: { };
-  flake.homeModules = mkModules {
-    alacritty = import ./alacritty.nix;
-    firefox = import ./firefox.nix;
-    git = import ./git.nix;
-    neovim = import ./nvim.nix;
-    tmux = import ./tmux.nix;
+  flake.homeModules = {
+    alacritty = ./alacritty.nix;
+    firefox = ./firefox.nix;
+    git = ./git.nix;
+    neovim = ./nvim.nix;
+    tmux = ./tmux.nix;
   };
 }

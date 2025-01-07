@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 { ... }:
 {
+=======
+_: {
+>>>>>>> 3cae6793b840d17c4827a03172e681b3b3389ae0
   programs.git = {
     userName = "Oskar Manhart";
     userEmail = "52569953+oskardotglobal@users.noreply.github.com";

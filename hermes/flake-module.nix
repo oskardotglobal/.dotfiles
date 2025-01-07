@@ -4,7 +4,6 @@
   ...
 }:
 {
-  perSystem = { ... }: { };
   flake.darwinConfigurations."Air-von-Oskar" = inputs.nix-darwin.lib.darwinSystem {
     specialArgs = rec {
       system = "aarch64-darwin";

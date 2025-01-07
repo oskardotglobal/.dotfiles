@@ -15,6 +15,7 @@ in
   networking.hostName = "Air-von-Oskar";
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+<<<<<<< HEAD
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = {
@@ -23,7 +24,7 @@ in
   home-manager.backupFileExtension = "backup";
 
   home-manager.users.${username} =
-    { ... }:
+    _:
     {
       imports = [
         homeModules.alacritty

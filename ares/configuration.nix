@@ -10,11 +10,6 @@ let
 in
 rec {
   imports = [
-    nixosModules.hardware.superdrive
-    nixosModules.system
-    nixosModules.programs
-
-    nixosModules.nixpkgs
     ./hardware
   ];
 
@@ -28,7 +23,7 @@ rec {
   home-manager.backupFileExtension = "backup";
 
   home-manager.users.${username} =
-    { ... }:
+    _:
     {
       imports = [
         homeModules.alacritty
