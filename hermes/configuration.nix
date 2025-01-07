@@ -10,12 +10,19 @@ in
 {
   imports = [
     darwinModules.nixpkgs
+    darwinModules.programming
+    darwinModules.goldwarden
+    darwinModules.macos
   ];
 
   networking.hostName = "Air-von-Oskar";
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-<<<<<<< HEAD
+  users.users.${username} = {
+    name = username;
+    home = "/Users/${username}";
+  };
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = {
@@ -23,30 +30,24 @@ in
   };
   home-manager.backupFileExtension = "backup";
 
-  home-manager.users.${username} =
-    _:
-    {
-      imports = [
-        homeModules.alacritty
-        homeModules.git
-        homeModules.neovim
-        homeModules.tmux
-      ];
+  home-manager.users.${username} = _: {
+    imports = [
+      homeModules.alacritty
+      homeModules.git
+      homeModules.neovim
+      homeModules.tmux
+    ];
 
-      programs.home-manager.enable = true;
-      home.username = username;
-      home.homeDirectory = /Users/${username};
-
-      # This value determines the Home Manager release that your
-      # configuration is compatible with. This helps avoid breakage
-      # when a new Home Manager release introduces backwards
-      # incompatible changes.
-      #
-      # You can update Home Manager without changing this value. See
-      # the Home Manager release notes for a list of state version
-      # changes in each release.
-      home.stateVersion = "24.11";
-    };
+    # This value determines the Home Manager release that your
+    # configuration is compatible with. This helps avoid breakage
+    # when a new Home Manager release introduces backwards
+    # incompatible changes.
+    #
+    # You can update Home Manager without changing this value. See
+    # the Home Manager release notes for a list of state version
+    # changes in each release.
+    home.stateVersion = "24.11";
+  };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

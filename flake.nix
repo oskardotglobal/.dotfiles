@@ -52,8 +52,8 @@
         };
 
       flake.overlays = {
-          spotx = import ./overlays/spotx.nix;
-          git-blame-someone-else = import ./overlays/git-blame-someone-else.nix;
+        spotx = import ./overlays/spotx.nix;
+        git-blame-someone-else = import ./overlays/git-blame-someone-else.nix;
       };
 
       imports = [

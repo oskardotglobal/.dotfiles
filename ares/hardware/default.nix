@@ -1,5 +1,4 @@
-_:
-{
+_: {
   imports = [
     ./boot.nix
     ./fatboi.nix

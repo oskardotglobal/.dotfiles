@@ -1,5 +1,4 @@
-_:
-{
+_: {
   flake.homeModules = {
     alacritty = ./alacritty.nix;
     firefox = ./firefox.nix;
