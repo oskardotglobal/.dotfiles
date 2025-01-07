@@ -11,7 +11,6 @@ in
   imports = [
     darwinModules.nixpkgs
     darwinModules.programming
-    darwinModules.goldwarden
     darwinModules.macos
   ];
 
