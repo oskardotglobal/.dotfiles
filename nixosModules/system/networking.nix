@@ -1,6 +1,8 @@
 _: {
-  networking.hostName = "ares";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "ares";
+    networkmanager.enable = true;
 
-  networking.firewall.enable = false;
+    firewall.enable = false;
+  };
 }

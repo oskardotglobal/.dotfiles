@@ -11,7 +11,7 @@
     jetbrains.idea-ultimate
     jetbrains.datagrip
 
-    neovim
+    lunarvim
     zed-editor
 
     gitFull

@@ -1,4 +1,5 @@
-_: {
+{ pkgs, ... }:
+{
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
@@ -14,4 +15,6 @@ _: {
     pulse.enable = true;
     wireplumber.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [ easyeffects ];
 }

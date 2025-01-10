@@ -14,31 +14,35 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
-  services.xserver = {
-    enable = true;
-
-    xkb = {
-      layout = "de";
-      variant = "nodeadkeys";
-    };
-
-    videoDrivers = [ "nvidia" ];
-
-    displayManager.gdm = {
+  services = {
+    xserver = {
       enable = true;
-      wayland = false;
+
+      xkb = {
+        layout = "de";
+        variant = "nodeadkeys";
+      };
+
+      videoDrivers = [ "nvidia" ];
+
+      displayManager.gdm = {
+        enable = true;
+        wayland = false;
+      };
+
+      desktopManager.gnome.enable = true;
     };
 
-    desktopManager.gnome.enable = true;
-  };
+    libinput = {
+      enable = true;
 
-  services.libinput = {
-    enable = true;
-
-    # disabling mouse acceleration
-    mouse = {
-      accelProfile = "flat";
+      # disabling mouse acceleration
+      mouse = {
+        accelProfile = "flat";
+      };
     };
+
+    udev.packages = with pkgs; [ gnome-settings-daemon ];
   };
 
   environment.gnome.excludePackages = with pkgs; [
@@ -57,6 +61,5 @@
     atomix # puzzle game
   ];
 
-  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
   environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
 }
