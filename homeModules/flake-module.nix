@@ -4,5 +4,6 @@ _: {
     firefox = ./firefox.nix;
     git = ./git.nix;
     tmux = ./tmux.nix;
+    rustdesk = ./rustdesk.nix;
   };
 }

@@ -6,10 +6,7 @@
 
   environment.systemPackages = with pkgs; [
     jetbrains.jdk
-    jetbrains.rust-rover
-    jetbrains.phpstorm
     jetbrains.idea-ultimate
-    jetbrains.datagrip
 
     lunarvim
     zed-editor

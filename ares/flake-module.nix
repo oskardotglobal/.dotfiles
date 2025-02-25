@@ -22,7 +22,7 @@
         ];
 
         overlays = [
-          inputs.nur.overlay
+          inputs.nur.overlays.default
           inputs.rust-overlay.overlays.default
 
           self.overlays.spotx
@@ -30,6 +30,7 @@
 
           (_: pkgs: {
             inherit (inputs.winapps.packages."${system}") winapps winapps-launcher;
+            nixd = inputs.nixd.packages."${system}".default;
           })
         ];
       };

@@ -11,6 +11,7 @@
     lutris
 
     ryujinx
+    obs-studio
 
     prismlauncher
 
@@ -21,4 +22,6 @@
     nix-citizen.packages.${system}.star-citizen-helper
     nix-citizen.packages.${system}.lug-helper
   ];
+
+  programs.ns-usbloader.enable = true;
 }

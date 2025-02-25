@@ -5,6 +5,7 @@
     element-desktop
 
     obsidian
+    zotero
     bitwarden
     spotify
     kdePackages.kdenlive

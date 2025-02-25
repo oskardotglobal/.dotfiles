@@ -5,10 +5,6 @@
 
     netbird
     netbird-ui
-
-    brave
-
-    forgejo-runner
   ];
 
   services.netbird.enable = true;

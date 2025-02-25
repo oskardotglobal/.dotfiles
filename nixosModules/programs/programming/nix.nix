@@ -4,7 +4,7 @@
     alejandra
     nixfmt-rfc-style
     statix
-    nil
+    nixd
     devenv
   ];
 }

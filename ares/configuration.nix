@@ -28,6 +28,7 @@ rec {
         homeModules.firefox
         homeModules.git
         homeModules.tmux
+        homeModules.rustdesk
       ];
 
       programs.home-manager.enable = true;
