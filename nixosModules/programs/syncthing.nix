@@ -1,7 +1,8 @@
-_: {
+{ config, ... }:
+{
   services.syncthing = {
     enable = true;
     user = "oskar";
-    dataDir = "/home/oskar";
+    dataDir = "/home/${config.oskardotglobal.home.username}";
   };
 }

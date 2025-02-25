@@ -1,37 +1,51 @@
-{ inputs, ... }:
 {
-  nix = {
-    # make `nix run nixpkgs#package` use the same nixpkgs as the one used by this flake.
-    registry.nixpkgs.flake = inputs.nixpkgs;
+  inputs,
+  lib,
+  config,
+  ...
+}:
+{
+  options.oskardotglobal.nixpkgs = lib.mkOption {
+    type = lib.types.anything;
+    default = inputs.nixpkgs;
+    description = "The nixpkgs input to use. Defaults to `inputs.nixpkgs`";
+  };
 
-    # remove nix-channel related tools & configs, we use flakes instead.
-    channel.enable = false;
+  config = {
+    nixpkgs.config.allowUnfree = true;
 
-    # Keep nixPath so we don't have to use flakes for dev shells
-    nixPath = [
-      "nixpkgs=${inputs.nixpkgs}"
-      "nixpkgs-unstable=${inputs.nixpkgs-unstable}"
-      "rust-overlay=${inputs.rust-overlay}"
-    ];
+    nix = {
+      # make `nix run nixpkgs#package` use the same nixpkgs as the one used by this flake.
+      registry.nixpkgs.flake = config.oskardotglobal.nixpkgs;
 
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-        "pipe-operators"
+      # remove nix-channel related tools & configs, we use flakes instead.
+      channel.enable = false;
+
+      # Keep nixPath so we don't have to use flakes for dev shells
+      nixPath = lib.mkDefault [
+        "nixpkgs=${config.oskardotglobal.nixpkgs}"
+        "rust-overlay=${inputs.rust-overlay}"
       ];
-      trusted-users = [ "@wheel" ];
 
-      substituters = [
-        "https://nix-gaming.cachix.org"
-        "https://nix-citizen.cachix.org"
-        "https://nix-community.cachix.org"
-      ];
-      trusted-public-keys = [
-        "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-        "nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
+      settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+          "pipe-operators"
+        ];
+        trusted-users = [ "@wheel" ];
+
+        substituters = [
+          "https://nix-gaming.cachix.org"
+          "https://nix-citizen.cachix.org"
+          "https://nix-community.cachix.org"
+        ];
+        trusted-public-keys = [
+          "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+          "nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+      };
     };
   };
 }

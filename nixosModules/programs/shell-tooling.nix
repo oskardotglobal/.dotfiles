@@ -5,12 +5,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    jetbrains.jdk
-    jetbrains.idea-ultimate
-
     lunarvim
-    zed-editor
-
     gitFull
     git-blame-someone-else
     just
@@ -19,11 +14,6 @@
     unzip
     zip
     ripgrep
-    wakatime
-
-    jdk21
-    bun
-    nodejs_20
-    nodePackages.pnpm
+    yt-dlp
   ];
 }

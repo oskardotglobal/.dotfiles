@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+_: {
   swapDevices = [
     {
       device = "/var/lib/swapfile";

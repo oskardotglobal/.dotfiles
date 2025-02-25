@@ -1,65 +1,82 @@
 {
-  pkgs,
+  self,
   inputs,
+  config,
   homeModules,
+  pkgs,
   ...
 }:
-let
-  username = "oskar";
-in
-rec {
+{
   imports = [
     ./hardware
+    ./games
+  ];
+
+  nixpkgs.overlays = [
+    inputs.nur.overlays.default
+
+    self.overlays.spotx
+    self.overlays.git-blame-someone-else
   ];
 
   networking.hostName = "ares";
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {
-      inherit inputs;
-    };
-    backupFileExtension = "backup";
+  oskardotglobal.home = {
+    username = "oskar";
+    displayName = "Oskar Manhart";
 
-    users.${username} = _: {
-      imports = [
-        homeModules.alacritty
-        homeModules.firefox
-        homeModules.git
-        homeModules.tmux
-        homeModules.rustdesk
-      ];
+    modules = [
+      { home.homeDirectory = "/home/${config.oskardotglobal.home.username}"; }
 
-      programs.home-manager.enable = true;
+      homeModules.alacritty
+      homeModules.firefox
+      homeModules.git
+      homeModules.tmux
+      homeModules.rustdesk
+      homeModules.zsh
+    ];
 
-      home = {
-        inherit username;
-        homeDirectory = "/home/${username}";
-
-        # This value determines the Home Manager release that your
-        # configuration is compatible with. This helps avoid breakage
-        # when a new Home Manager release introduces backwards
-        # incompatible changes.
-        #
-        # You can update Home Manager without changing this value. See
-        # the Home Manager release notes for a list of state version
-        # changes in each release.
-        stateVersion = "24.05";
-      };
-    };
+    stateVersion = "24.05";
   };
 
-  systemd.services."home-manager-${username}".serviceConfig.ExecStartPre =
-    let
-      script = pkgs.writeScript "hm-${username}-pre-start" ''
-        #!${pkgs.bash}/bin/bash
+  users.users."${config.oskardotglobal.home.username}".extraGroups = [
+    "networkmanager"
+    "wheel"
+    "docker"
+    "kvm"
+    "libvirtd"
+  ];
 
-        ${pkgs.findutils}/bin/find /home/${username}/.mozilla/firefox -type f -iname "*.${home-manager.backupFileExtension}" \
-          | ${pkgs.findutils}/bin/xargs -i rm "{}"
-      '';
-    in
-    "${script}";
+  virtualisation.docker.enable = true;
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/${config.oskardotglobal.home.username}/.dotfiles";
+  };
+
+  environment.systemPackages = with pkgs; [
+    jetbrains.jdk
+    jetbrains.idea-ultimate
+    zed-editor
+
+    jdk21
+    bun
+    nodejs_20
+    nodePackages.pnpm
+
+    vesktop
+    element-desktop
+
+    obsidian
+    zotero
+    bitwarden
+    spotify
+    kdePackages.kdenlive
+
+    gparted
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

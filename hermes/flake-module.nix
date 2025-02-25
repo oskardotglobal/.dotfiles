@@ -9,17 +9,17 @@
       system = "aarch64-darwin";
 
       inherit inputs self;
-      inherit (self) homeModules nixosModules darwinModules;
 
-      pkgs = import inputs.nixpkgs-darwin {
-        inherit system;
-        config.allowUnfree = true;
-
-        overlays = [ ];
-      };
+      inherit (self) homeModules;
     };
 
-    modules = [
+    modules = with self; [
+      nixosModules'.nixpkgs
+      nixosModules'.home
+
+      nixosModules'.programs.shell-tooling
+      nixosModules'.programs.nix-dev
+
       inputs.home-manager.darwinModules.home-manager
       ./configuration.nix
     ];

@@ -6,6 +6,7 @@
     ntfs3g
   ];
 
+  # TODO: the disk is still not writable
   fileSystems."/run/media/oskar/fatboi" = {
     label = "fatboi";
     device = "/dev/sda2";

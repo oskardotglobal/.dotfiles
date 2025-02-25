@@ -5,5 +5,6 @@ _: {
     git = ./git.nix;
     tmux = ./tmux.nix;
     rustdesk = ./rustdesk.nix;
+    zsh = ./zsh.nix;
   };
 }
