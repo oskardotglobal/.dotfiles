@@ -23,6 +23,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    rustup
+  ];
+
   security.pam.enableSudoTouchIdAuth = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
