@@ -9,7 +9,6 @@
     gitFull
     git-blame-someone-else
     just
-    zoxide
     pre-commit
     unzip
     zip

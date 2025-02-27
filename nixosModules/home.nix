@@ -52,11 +52,14 @@ in
     };
 
   config = {
+    programs.zsh.enable = true;
+
     users.users."${cfg.username}" = {
       name = cfg.username;
       isNormalUser = true;
       description = "Oskar Manhart";
       home = lib.mkIf isDarwin "/Users/${cfg.username}";
+      shell = pkgs.zsh;
     };
 
     home-manager = {
