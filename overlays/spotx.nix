@@ -17,18 +17,26 @@ in
         curl
       ]);
 
-    unpackPhase = builtins.replaceStrings [ "runHook postUnpack" ] [
-      ''
-        patchShebangs --build ${spotx}
-        runHook postUnpack
-      ''
-    ] old.unpackPhase;
+    unpackPhase =
+      builtins.replaceStrings
+        [ "runHook postUnpack" ]
+        [
+          ''
+            patchShebangs --build ${spotx}
+            runHook postUnpack
+          ''
+        ]
+        old.unpackPhase;
 
-    installPhase = builtins.replaceStrings [ "runHook postInstall" ] [
-      ''
-        bash ${spotx} -f -P "$out/share/spotify"
-        runHook postInstall
-      ''
-    ] old.installPhase;
+    installPhase =
+      builtins.replaceStrings
+        [ "runHook postInstall" ]
+        [
+          ''
+            bash ${spotx} -f -P "$out/share/spotify"
+            runHook postInstall
+          ''
+        ]
+        old.installPhase;
   });
 }

@@ -56,9 +56,7 @@ in
 
     users.users."${cfg.username}" = {
       name = cfg.username;
-      isNormalUser = true;
       description = "Oskar Manhart";
-      home = lib.mkIf isDarwin "/Users/${cfg.username}";
       shell = pkgs.zsh;
     };
 
@@ -70,23 +68,13 @@ in
       };
       backupFileExtension = "backup";
 
-      users."${cfg.username}" = _: {
+      users."${cfg.username}" = {
         imports = cfg.modules;
-        home = { inherit (cfg) stateVersion; };
+        home = {
+          inherit (cfg) stateVersion;
+          homeDirectory = lib.mkIf isDarwin /Users/${cfg.username};
+        };
       };
-    };
-
-    systemd.services."home-manager-${cfg.username}" = lib.mkIf (!isDarwin) {
-      serviceConfig.ExecStartPre =
-        let
-          script = pkgs.writeScript "hm-${cfg.username}-pre-start" ''
-            #!${pkgs.bash}/bin/bash
-
-            ${pkgs.findutils}/bin/find /home/${cfg.username}/.mozilla/firefox -type f -iname "*.${config.home-manager.backupFileExtension}" \
-              | ${pkgs.findutils}/bin/xargs -i rm "{}"
-          '';
-        in
-        "${script}";
     };
   };
 }
