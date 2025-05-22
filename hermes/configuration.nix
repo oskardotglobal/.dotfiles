@@ -1,4 +1,5 @@
 {
+  pkgs,
   inputs,
   homeModules,
   ...
@@ -9,7 +10,7 @@
 
   oskardotglobal = {
     nixpkgs = inputs.nixpkgs-darwin;
-    home = {
+    home = rec {
       username = "oskar";
       displayName = "Oskar Manhart";
 
@@ -17,6 +18,7 @@
         homeModules.alacritty
         homeModules.git
         homeModules.tmux
+        homeModules.zsh
       ];
 
       stateVersion = "24.11";
@@ -25,6 +27,8 @@
 
   environment.systemPackages = with pkgs; [
     rustup
+
+    ungoogled-chromium
   ];
 
   security.pam.enableSudoTouchIdAuth = true;
