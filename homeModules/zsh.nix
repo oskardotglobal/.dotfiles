@@ -59,6 +59,7 @@ in
 
     shellAliases = {
       cd = "z";
+      cdi = "zi";
 
       ls = "ls -Gh1";
       l = "ls -GAh1";

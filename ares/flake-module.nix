@@ -18,6 +18,7 @@
       nixosModules'.nixpkgs
       nixosModules'.home
 
+      nixosModules'.programs.animalese-typing
       nixosModules'.programs.nix-dev
       nixosModules'.programs.shell-tooling
       nixosModules'.programs.ssh

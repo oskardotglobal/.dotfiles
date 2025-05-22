@@ -6,5 +6,6 @@ _: {
     tmux = ./tmux.nix;
     rustdesk = ./rustdesk.nix;
     zsh = ./zsh.nix;
+    zed = ./zed.nix;
   };
 }

@@ -15,6 +15,7 @@ _: {
     };
 
     programs = {
+      animalese-typing = ./programs/animalese-typing.nix;
       shell-tooling = ./programs/shell-tooling.nix;
       nix-dev = ./programs/nix-dev.nix;
       work = ./programs/work.nix;

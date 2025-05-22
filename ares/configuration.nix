@@ -15,7 +15,6 @@
   nixpkgs.overlays = [
     inputs.nur.overlays.default
 
-    self.overlays.spotx
     self.overlays.git-blame-someone-else
   ];
 
@@ -34,9 +33,15 @@
       homeModules.tmux
       homeModules.rustdesk
       homeModules.zsh
+      homeModules.zed
     ];
 
     stateVersion = "24.05";
+  };
+
+  programs.animalese-typing = {
+    enable = true;
+    layout = "iso-de";
   };
 
   users.users."${config.oskardotglobal.home.username}".extraGroups = [
@@ -59,7 +64,6 @@
   environment.systemPackages = with pkgs; [
     jetbrains.jdk
     jetbrains.idea-ultimate
-    zed-editor
 
     jdk21
     bun

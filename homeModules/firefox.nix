@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   ...
 }:
 let
@@ -31,20 +30,6 @@ let
     };
   };
 in
-/*
-    pkgs.stdenv.mkDerivation {
-    name = "arcwtf";
-    src = pkgs.fetchgit {
-      url = "https://github.com/KiKaraage/ArcWTF";
-      rev = "885fa7d5e730e3937e3a8b7e966a36ff2421c744";
-      hash = "sha256-QUsb9XsP3VT0wFCUJGMHkF/AtgCYt5xIdvkLvqg90Xs=";
-    };
-
-    installPhase = ''
-      cp -v -r $src $out/
-    '';
-  };
-*/
 {
   programs.firefox = {
     enable = true;
@@ -61,7 +46,7 @@ in
     id = 0;
 
     search = {
-      default = "Oskar's 4get";
+      default = "Kagi";
 
       engines = {
         "NixOS Packages" = {
@@ -79,6 +64,7 @@ in
         };
 
         "Oskar's 4get".urls = [ { template = "https://search.oskar.global/web?s={searchTerms}"; } ];
+        "Kagi".urls = [ { template = "https://kagi.com/search?q={searchTerms}"; } ];
       };
     };
 
@@ -96,7 +82,7 @@ in
       "extensions.autoDisableScopes" = 0;
     };
 
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
       # sidebery
       # userchrome-toggle
 

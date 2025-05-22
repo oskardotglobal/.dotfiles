@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./boot.nix
-    ./fatboi.nix
+    ./disks.nix
     ./generated.nix
   ];
 }
