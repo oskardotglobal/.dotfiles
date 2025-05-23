@@ -1,8 +1,8 @@
 final: prev:
 let
   spotx = prev.fetchurl {
-    url = "https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/21481cea97bac720590c2aad8b1fc2c58c9ec8f9/spotx.sh";
-    hash = "sha256-1k1sEEnT1SE6RAWrfd1qFY1gFrUVNh7zUQJLu3DODlU=";
+    url = "https://github.com/SpotX-Official/SpotX-Bash/raw/d756a3f23ddd8bbbeb644f6070a147aaa239ba4a/spotx.sh";
+    hash = "sha256-7YW4yaIgamuKrdKpjPEwFqnCWX+9pGvvVYvwGySR9VA=";
   };
 in
 {
