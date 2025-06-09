@@ -34,9 +34,7 @@ in
       homeModules.firefox
       homeModules.git
       homeModules.tmux
-      homeModules.rustdesk
       homeModules.zsh
-      homeModules.zed
     ];
 
     stateVersion = "24.05";
@@ -65,34 +63,37 @@ in
 
   virtualisation.docker.enable = true;
 
-  programs.animalese-typing = {
-    enable = true;
-    layout = "iso-de";
-  };
+  programs = {
+    animalese-typing = {
+      enable = true;
+      layout = "iso-de";
+    };
 
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/${username}/.dotfiles";
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/${username}/.dotfiles";
+    };
+
+    goldwarden = {
+      enable = true;
+      useSshAgent = false;
+    };
   };
 
   environment.systemPackages = with pkgs; [
-    jetbrains.jdk
     jetbrains.idea-ultimate
 
-    jdk21
     bun
     nodejs_20
     nodePackages.pnpm
 
     vesktop
-    element-desktop
+    ncspot
 
     obsidian
     zotero
-    bitwarden
-    spotify
     kdePackages.kdenlive
 
     gparted

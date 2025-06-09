@@ -1,4 +1,4 @@
-_: {
+{
   flake.nixosModules' = {
     nixpkgs = ./nixpkgs.nix;
     home = ./home.nix;

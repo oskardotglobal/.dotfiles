@@ -1,4 +1,4 @@
-_: {
+{
   programs.git = {
     userName = "Oskar Manhart";
     userEmail = "52569953+oskardotglobal@users.noreply.github.com";

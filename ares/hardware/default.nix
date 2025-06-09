@@ -1,4 +1,4 @@
-_: {
+{
   imports = [
     ./boot.nix
     ./disks.nix

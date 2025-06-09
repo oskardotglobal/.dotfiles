@@ -51,8 +51,6 @@ in
       CLICOLOR = 1;
       EDITOR = "lvim";
 
-      # LIBVIRT_DEFAULT_URI = "qemu:///system";
-
       GOPATH = "${config.home.homeDirectory}/Workspaces/Go";
       PATH = "${config.home.homeDirectory}/.cargo/bin:${config.home.homeDirectory}/.local/bin:${GOPATH}/bin:$PATH";
     };
@@ -68,8 +66,7 @@ in
       vim = "lvim";
       vi = "lvim";
 
-      idea = ''nohup idea-ultimate nosplash $(pwd) &>/dev/null & disown'';
-      zed = "zeditor";
+      idea = ''nohup idea-ultimate nosplash $(pwd) &>/dev/null &; disown'';
     };
   };
 }

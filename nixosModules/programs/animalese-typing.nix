@@ -48,7 +48,7 @@ let
       ];
 
       useFetchCargoVendor = true;
-      cargoHash = "sha256-KzmHsPxN4IxgX7ALwz0Dl9H46i9ivsbVDdpFHfqpEPk=";
+      cargoHash = "sha256-0p2Ejhd9jTM8YbnznkRz8UoEcUzpj9IphzHK3kEIZb4=";
 
       nativeInstallCheckInputs = [ versionCheckHook ];
       versionCheckProgramArg = "--version";

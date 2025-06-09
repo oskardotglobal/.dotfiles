@@ -61,5 +61,12 @@
     atomix # puzzle game
   ];
 
+  systemd.targets = {
+    sleep.enable = false;
+    suspend.enable = false;
+    hibernate.enable = false;
+    hybrid-sleep.enable = false;
+  };
+
   environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
 }

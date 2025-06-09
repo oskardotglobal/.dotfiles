@@ -1,4 +1,4 @@
-_: {
+{
   flake.homeModules = {
     alacritty = ./alacritty.nix;
     firefox = ./firefox.nix;
@@ -6,6 +6,5 @@ _: {
     tmux = ./tmux.nix;
     rustdesk = ./rustdesk.nix;
     zsh = ./zsh.nix;
-    zed = ./zed.nix;
   };
 }
