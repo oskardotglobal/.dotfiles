@@ -66,6 +66,7 @@ in
       vim = "lvim";
       vi = "lvim";
 
+      git-checkout-default = "git checkout $(git remote show origin | grep -Po '(?<=HEAD branch: ).+')";
       idea = ''nohup idea-ultimate nosplash $(pwd) &>/dev/null &; disown'';
     };
   };

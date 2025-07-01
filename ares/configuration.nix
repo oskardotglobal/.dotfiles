@@ -21,7 +21,17 @@ in
     self.overlays.git-blame-someone-else
   ];
 
-  networking.hostName = "ares";
+  networking = {
+    hostName = "ares";
+
+    interfaces.enp39s0.wakeOnLan = {
+      enable = true;
+      policy = [
+        "phy"
+        "magic"
+      ];
+    };
+  };
 
   oskardotglobal.home = {
     username = "oskar";
@@ -50,16 +60,22 @@ in
     ];
   };
 
-  systemd.services."home-manager-${username}".serviceConfig.ExecStartPre =
-    let
-      script = pkgs.writeScript "hm-${username}-pre-start" ''
-        #!${pkgs.bash}/bin/bash
+  systemd = {
+    services."home-manager-${username}".serviceConfig.ExecStartPre =
+      let
+        script = pkgs.writeScript "hm-${username}-pre-start" ''
+          #!${pkgs.bash}/bin/bash
 
-        ${pkgs.findutils}/bin/find /home/${username}/.mozilla/firefox -type f -iname "*.${config.home-manager.backupFileExtension}" \
-          | ${pkgs.findutils}/bin/xargs -i rm "{}"
-      '';
-    in
-    "${script}";
+          ${pkgs.findutils}/bin/find /home/${username}/.mozilla/firefox -type f -iname "*.${config.home-manager.backupFileExtension}" \
+            | ${pkgs.findutils}/bin/xargs -i rm "{}"
+        '';
+      in
+      "${script}";
+
+    tmpfiles.rules = [
+      "L+ /run/gdm/.config/monitors.xml - - - - ${./monitors.xml}"
+    ];
+  };
 
   virtualisation.docker.enable = true;
 
