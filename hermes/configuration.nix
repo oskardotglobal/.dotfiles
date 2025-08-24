@@ -19,7 +19,12 @@
         homeModules.git
         homeModules.tmux
         homeModules.zsh
-        { programs.zsh.envExtra = ''eval "$(/opt/homebrew/bin/brew shellenv)"''; }
+        {
+          programs.zsh = {
+            envExtra = ''eval "$(/opt/homebrew/bin/brew shellenv)"'';
+            sessionVariables.SSH_AUTH_SOCK = "/Users/${username}/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock";
+          };
+        }
       ];
 
       stateVersion = "24.11";
@@ -36,9 +41,12 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";
-    
+
     taps = [ "netbirdio/tap" ];
-    brews = [ "netbirdio/tap/netbird" "mas" ];
+    brews = [
+      "netbirdio/tap/netbird"
+      "mas"
+    ];
 
     casks = [
       "music-decoy"
@@ -52,7 +60,7 @@
       "obsidian"
       "zotero"
       "calibre"
-      
+
       "jetbrains-toolbox"
       "netbirdio/tap/netbird-ui"
 
