@@ -1,3 +1,0 @@
-{
-  flake.darwinModules = { };
-}

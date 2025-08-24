@@ -19,6 +19,7 @@
         homeModules.git
         homeModules.tmux
         homeModules.zsh
+        { programs.zsh.envExtra = ''eval "$(/opt/homebrew/bin/brew shellenv)"''; }
       ];
 
       stateVersion = "24.11";
@@ -30,6 +31,40 @@
   environment.systemPackages = with pkgs; [
     rustup
   ];
+
+  # TODO: Add rquickshare when my PR is merged
+  homebrew = {
+    enable = true;
+    onActivation.cleanup = "uninstall";
+    
+    taps = [ "netbirdio/tap" ];
+    brews = [ "netbirdio/tap/netbird" "mas" ];
+
+    casks = [
+      "music-decoy"
+      "pearcleaner"
+
+      "zen"
+      "ungoogled-chromium"
+
+      "syncthing-app"
+      "nextcloud-vfs"
+      "obsidian"
+      "zotero"
+      "calibre"
+      
+      "jetbrains-toolbox"
+      "netbirdio/tap/netbird-ui"
+
+      "orcaslicer"
+      "kdenlive"
+    ];
+
+    masApps = {
+      GLKVM = 6740846845;
+      Bitwarden = 1352778147;
+    };
+  };
 
   security.pam.services.sudo_local.touchIdAuth = true;
 

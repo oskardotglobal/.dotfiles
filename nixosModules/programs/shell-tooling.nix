@@ -13,5 +13,6 @@
     ripgrep
     yt-dlp
     file
+    gnused
   ];
 }
