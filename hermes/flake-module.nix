@@ -3,8 +3,8 @@
   inputs,
   ...
 }:
-{
-  flake.darwinConfigurations."Air-von-Oskar" = inputs.nix-darwin.lib.darwinSystem {
+let
+  host = inputs.nix-darwin.lib.darwinSystem {
     specialArgs = rec {
       system = "aarch64-darwin";
 
@@ -23,5 +23,11 @@
 
       ./configuration.nix
     ];
+  };
+in
+{
+  flake.darwinConfigurations = {
+    hermes = host;
+    "Air-von-Oskar" = host;
   };
 }

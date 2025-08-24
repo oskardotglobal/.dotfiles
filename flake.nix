@@ -58,7 +58,6 @@
       imports = [
         ./nixosModules/flake-module.nix
         ./homeModules/flake-module.nix
-        ./darwinModules/flake-module.nix
 
         ./ares/flake-module.nix
         ./hermes/flake-module.nix
