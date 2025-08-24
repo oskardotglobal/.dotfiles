@@ -106,7 +106,7 @@ in
     nodePackages.pnpm
 
     vesktop
-    ncspot
+    spotify-player
 
     obsidian
     zotero
