@@ -7,7 +7,6 @@
   environment.systemPackages = with pkgs; [
     lunarvim
     gitFull
-    git-blame-someone-else
     just
     unzip
     zip

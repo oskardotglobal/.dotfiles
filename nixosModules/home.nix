@@ -72,7 +72,6 @@ in
         imports = cfg.modules;
         home = {
           inherit (cfg) stateVersion;
-          homeDirectory = if isDarwin then /Users/${cfg.username} else lib.mkForce "/home/${cfg.username}";
         };
       };
     };
