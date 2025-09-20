@@ -2,7 +2,7 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:oskardotglobal/nixpkgs/backport-431088-to-release-25.05";
     nur.url = "github:nix-community/NUR";
 
     home-manager = {
@@ -17,7 +17,7 @@
     };
 
     nix-gaming = {
-      url = "github:fufexan/nix-gaming/8756862665662edad5bbb098d0cba727cde57fec";
+      url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-citizen = {
@@ -26,8 +26,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
+    nix-jetbrains-plugins = {
+      url = "github:theCapypara/nix-jetbrains-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     winapps = {

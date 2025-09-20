@@ -25,11 +25,7 @@
 
       videoDrivers = [ "nvidia" ];
 
-      displayManager.gdm = {
-        enable = true;
-        wayland = false;
-      };
-
+      displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
 
@@ -37,29 +33,17 @@
       enable = true;
 
       # disabling mouse acceleration
-      mouse = {
-        accelProfile = "flat";
-      };
+      mouse.accelProfile = "flat";
+    };
+
+    gnome = {
+      core-apps.enable = false;
+      core-developer-tools.enable = false;
+      games.enable = false;
     };
 
     udev.packages = with pkgs; [ gnome-settings-daemon ];
   };
-
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-photos
-    gnome-tour
-    gnome-console
-
-    cheese # webcam tool
-    gnome-music
-    gnome-terminal
-    epiphany # web browser
-    gnome-characters
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-  ];
 
   systemd.targets = {
     sleep.enable = false;
@@ -68,5 +52,33 @@
     hybrid-sleep.enable = false;
   };
 
-  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
+  environment = {
+    sessionVariables.NIXOS_OZONE_WL = "1";
+
+    gnome.excludePackages = with pkgs; [
+      gnome-tour
+      gnome-user-docs
+    ];
+
+    systemPackages = with pkgs; [
+      gnomeExtensions.appindicator
+      gnome-randr
+
+      gnome-text-editor
+      gnome-calculator
+      gnome-calendar
+      gnome-contacts
+
+      nautilus # file manager
+      loupe # image viewer
+      evince # document viewer
+      baobab # disk usage
+      seahorse # gnome keyring
+      sushi # nautilus quick preview
+      geary # email
+
+      mpv
+      btop-cuda
+    ];
+  };
 }

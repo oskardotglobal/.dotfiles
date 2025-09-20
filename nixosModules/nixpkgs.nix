@@ -12,7 +12,12 @@
   };
 
   config = {
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "broadcom-sta-6.30.223.271-57-6.12.45"
+      ];
+    };
 
     nix = {
       # make `nix run nixpkgs#package` use the same nixpkgs as the one used by this flake.
@@ -22,10 +27,7 @@
       channel.enable = false;
 
       # Keep nixPath so we don't have to use flakes for dev shells
-      nixPath = lib.mkDefault [
-        "nixpkgs=${config.oskardotglobal.nixpkgs}"
-        "rust-overlay=${inputs.rust-overlay}"
-      ];
+      nixPath = lib.mkDefault [ "nixpkgs=${config.oskardotglobal.nixpkgs}" ];
 
       settings = {
         experimental-features = [

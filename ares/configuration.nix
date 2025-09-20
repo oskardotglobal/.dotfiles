@@ -38,7 +38,10 @@ in
     displayName = "Oskar Manhart";
 
     modules = [
-      { home.homeDirectory = "/home/${username}"; }
+      {
+        home.homeDirectory = "/home/${username}";
+        xdg.enable = true;
+      }
 
       homeModules.alacritty
       homeModules.firefox
@@ -99,14 +102,12 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    jetbrains.idea-ultimate
-
     bun
     nodejs_20
     nodePackages.pnpm
 
     vesktop
-    ncspot
+    spotify-player
 
     obsidian
     zotero
