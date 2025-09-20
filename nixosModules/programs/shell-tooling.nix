@@ -5,7 +5,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    lunarvim
+    helix
     gitFull
     just
     unzip

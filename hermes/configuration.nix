@@ -55,7 +55,6 @@
       "zen"
       "ungoogled-chromium"
 
-      "syncthing-app"
       "nextcloud-vfs"
       "obsidian"
       "zotero"
@@ -71,10 +70,15 @@
     masApps = {
       GLKVM = 6740846845;
       Bitwarden = 1352778147;
+      Sushitrain = 6553985316;
     };
   };
 
-  security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local = {
+    enable = true;
+    touchIdAuth = true;
+    reattach = true;
+  };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

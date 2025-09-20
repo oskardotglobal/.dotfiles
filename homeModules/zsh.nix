@@ -49,7 +49,7 @@ in
 
     sessionVariables = rec {
       CLICOLOR = 1;
-      EDITOR = "lvim";
+      EDITOR = "hx";
 
       GOPATH = "${config.home.homeDirectory}/Workspaces/Go";
       PATH = "${config.home.homeDirectory}/.cargo/bin:${config.home.homeDirectory}/.local/bin:${GOPATH}/bin:$PATH";
@@ -63,8 +63,8 @@ in
       l = "ls -GAh1";
       ll = "ls -GAh1l";
 
-      vim = "lvim";
-      vi = "lvim";
+      vim = "hx";
+      vi = "hx";
 
       git-checkout-default = "git checkout $(git remote show origin | grep -Po '(?<=HEAD branch: ).+')";
       idea = ''nohup idea-ultimate nosplash $(pwd) &>/dev/null &; disown'';
