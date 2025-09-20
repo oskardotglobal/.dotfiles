@@ -19,10 +19,10 @@
       shell-tooling = ./programs/shell-tooling.nix;
       nix-dev = ./programs/nix-dev.nix;
       work = ./programs/work.nix;
-      nh = ./programs/nh.nix;
       ssh = ./programs/ssh.nix;
       syncthing = ./programs/syncthing.nix;
       winapps = ./programs/winapps.nix;
+      idea = ./programs/idea.nix;
     };
   };
 }

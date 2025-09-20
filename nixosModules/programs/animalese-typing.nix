@@ -47,7 +47,6 @@ let
         alsa-lib-with-plugins
       ];
 
-      useFetchCargoVendor = true;
       cargoHash = "sha256-0p2Ejhd9jTM8YbnznkRz8UoEcUzpj9IphzHK3kEIZb4=";
 
       nativeInstallCheckInputs = [ versionCheckHook ];

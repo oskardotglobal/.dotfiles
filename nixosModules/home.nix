@@ -76,6 +76,6 @@ in
       };
     };
 
-    system.primaryUser = cfg.username;
+    system = lib.optionalAttrs isDarwin { primaryUser = cfg.username; };
   };
 }

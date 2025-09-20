@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 let
   theme = pkgs.writeTextFile {
     name = "oskardotglobal.zsh-theme";
@@ -21,6 +25,8 @@ let
     '';
     destination = "/themes/oskardotglobal.zsh-theme";
   };
+
+  home = config.home.homeDirectory;
 in
 {
   programs.zoxide = {
@@ -30,6 +36,11 @@ in
 
   programs.zsh = {
     enable = true;
+
+    dotDir = ".config/zsh";
+    history.path = "${home}/.local/share/zsh/zsh_history";
+
+    completionInit = ''autoload -U compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"'';
 
     oh-my-zsh = {
       enable = true;
@@ -51,8 +62,15 @@ in
       CLICOLOR = 1;
       EDITOR = "lvim";
 
-      GOPATH = "${config.home.homeDirectory}/Workspaces/Go";
-      PATH = "${config.home.homeDirectory}/.cargo/bin:${config.home.homeDirectory}/.local/bin:${GOPATH}/bin:$PATH";
+      GOPATH = "${home}/Workspaces/Go";
+      PATH =
+        [
+          "${home}/.cargo/bin"
+          "${home}/.local/bin"
+          "${GOPATH}/bin"
+          "$PATH"
+        ]
+        |> builtins.concatStringsSep ":";
     };
 
     shellAliases = {
