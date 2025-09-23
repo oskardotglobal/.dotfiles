@@ -31,6 +31,8 @@
     };
   };
 
+  # TODO: why isn't this set automatically
+  system.primaryUser = "oskar";
   users.users.oskar.home = "/Users/oskar";
 
   environment.systemPackages = with pkgs; [
@@ -64,7 +66,6 @@
       "netbirdio/tap/netbird-ui"
 
       "orcaslicer"
-      "kdenlive"
     ];
 
     masApps = {
