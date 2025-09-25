@@ -48,9 +48,13 @@
         { pkgs, ... }:
         {
           formatter = pkgs.nixfmt-tree;
-          packages.helix = import ./helix.nix {
+          packages.helix = import ./packages/helix.nix {
             inherit pkgs;
-            extraPackages = with pkgs; [ perlnavigator nixfmt-rfc-style nixd ];
+            extraPackages = with pkgs; [
+              perlnavigator
+              nixfmt-rfc-style
+              nixd
+            ];
           };
         };
 

@@ -15,9 +15,8 @@
       displayName = "Oskar Manhart";
 
       modules = [
-        homeModules.alacritty
+        homeModules.kitty
         homeModules.git
-        homeModules.tmux
         homeModules.zsh
         {
           programs.zsh = {
@@ -37,6 +36,10 @@
 
   environment.systemPackages = with pkgs; [
     rustup
+
+    typst
+    tinymist
+    # (callPackage ../packages/awrit.nix { })
   ];
 
   # TODO: Add rquickshare when my PR is merged
