@@ -31,6 +31,7 @@
       enable_audio_bell = false;
       hide_window_decorations = true;
       enabled_layouts = "splits";
+      macos_quit_when_last_window_closed = true;
     };
   };
 }

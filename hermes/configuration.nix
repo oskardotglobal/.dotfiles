@@ -19,9 +19,15 @@
         homeModules.git
         homeModules.zsh
         {
-          programs.zsh = {
-            envExtra = ''eval "$(/opt/homebrew/bin/brew shellenv)"'';
-            sessionVariables.SSH_AUTH_SOCK = "/Users/${username}/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock";
+          programs = {
+            zsh = {
+              envExtra = ''eval "$(/opt/homebrew/bin/brew shellenv)"'';
+              sessionVariables.SSH_AUTH_SOCK = "/Users/${username}/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock";
+            };
+            nh = {
+              enable = true;
+              flake = "/Users/${username}/.dotfiles";
+            };
           };
         }
       ];
