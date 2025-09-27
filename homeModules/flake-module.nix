@@ -6,5 +6,6 @@
     tmux = ./tmux.nix;
     rustdesk = ./rustdesk.nix;
     zsh = ./zsh.nix;
+    kitty = ./kitty.nix;
   };
 }

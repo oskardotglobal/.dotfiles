@@ -15,14 +15,19 @@
       displayName = "Oskar Manhart";
 
       modules = [
-        homeModules.alacritty
+        homeModules.kitty
         homeModules.git
-        homeModules.tmux
         homeModules.zsh
         {
-          programs.zsh = {
-            envExtra = ''eval "$(/opt/homebrew/bin/brew shellenv)"'';
-            sessionVariables.SSH_AUTH_SOCK = "/Users/${username}/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock";
+          programs = {
+            zsh = {
+              envExtra = ''eval "$(/opt/homebrew/bin/brew shellenv)"'';
+              sessionVariables.SSH_AUTH_SOCK = "/Users/${username}/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock";
+            };
+            nh = {
+              enable = true;
+              flake = "/Users/${username}/.dotfiles";
+            };
           };
         }
       ];
@@ -31,10 +36,16 @@
     };
   };
 
+  # TODO: why isn't this set automatically
+  system.primaryUser = "oskar";
   users.users.oskar.home = "/Users/oskar";
 
   environment.systemPackages = with pkgs; [
     rustup
+
+    typst
+    tinymist
+    # (callPackage ../packages/awrit.nix { })
   ];
 
   # TODO: Add rquickshare when my PR is merged
@@ -64,7 +75,6 @@
       "netbirdio/tap/netbird-ui"
 
       "orcaslicer"
-      "kdenlive"
     ];
 
     masApps = {

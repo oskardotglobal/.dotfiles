@@ -12,7 +12,8 @@
     ];
 
     extraConfig = ''
-      set -g mouse on
+      set -g mouse off
+      set -g escape-time 0
 
       set -g default-terminal "alacritty"
       set-option -sa terminal-overrides ",alacritty*:Tc"
