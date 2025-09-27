@@ -44,10 +44,9 @@ in
         xdg.enable = true;
       }
 
-      homeModules.alacritty
+      homeModules.kitty
       homeModules.firefox
       homeModules.git
-      homeModules.tmux
       homeModules.zsh
     ];
 
