@@ -19,8 +19,9 @@
       enable = true;
 
       xkb = {
-        layout = "de";
-        variant = "nodeadkeys";
+        options = "caps:escape";
+        layout = "us";
+        variant = "altgr-intl";
       };
 
       videoDrivers = [ "nvidia" ];
