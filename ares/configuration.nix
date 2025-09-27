@@ -13,6 +13,7 @@ in
   imports = [
     ./hardware
     ./games
+    ./kvm.nix
   ];
 
   nixpkgs.overlays = [
@@ -74,10 +75,6 @@ in
         '';
       in
       "${script}";
-
-    tmpfiles.rules = [
-      "L+ /run/gdm/.config/monitors.xml - - - - ${./monitors.xml}"
-    ];
   };
 
   virtualisation.docker.enable = true;
