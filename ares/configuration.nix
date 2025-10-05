@@ -91,11 +91,6 @@ in
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/${username}/.dotfiles";
     };
-
-    goldwarden = {
-      enable = true;
-      useSshAgent = false;
-    };
   };
 
   environment.systemPackages = with pkgs; [
