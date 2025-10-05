@@ -18,6 +18,7 @@
         homeModules.kitty
         homeModules.git
         homeModules.zsh
+        homeModules.helix
         {
           programs = {
             zsh = {

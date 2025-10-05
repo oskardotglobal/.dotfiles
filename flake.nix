@@ -48,15 +48,6 @@
         { pkgs, ... }:
         {
           formatter = pkgs.nixfmt-tree;
-          packages.helix = import ./packages/helix.nix {
-            inherit pkgs;
-            extraPackages = with pkgs; [
-              perl540Packages.PerlTidy
-              perlnavigator
-              nixfmt-rfc-style
-              nixd
-            ];
-          };
         };
 
       flake.overlays = {

@@ -48,6 +48,7 @@ in
       homeModules.firefox
       homeModules.git
       homeModules.zsh
+      homeModules.helix
     ];
 
     stateVersion = "24.05";

@@ -16,7 +16,7 @@ in
         pkgs.writeShellScriptBin "xrdp-xstartup" ''
           # cp -f ${./monitors-kvm.xml} ${dest}
           # chown oskar ${dest}
-                  
+
           ${pkgs.gnome-session}/bin/gnome-session "$@"
         ''
         |> lib.getExe;
