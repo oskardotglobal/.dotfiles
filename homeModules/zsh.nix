@@ -37,7 +37,7 @@ in
   programs.zsh = {
     enable = true;
 
-    dotDir = ".config/zsh";
+    dotDir = "${home}/.config/zsh";
     history.path = "${home}/.local/share/zsh/zsh_history";
 
     completionInit = ''autoload -U compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"'';

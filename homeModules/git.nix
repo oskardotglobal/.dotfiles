@@ -2,23 +2,21 @@
   programs.git = {
     enable = true;
 
-    userName = "Oskar Manhart";
-    userEmail = "52569953+oskardotglobal@users.noreply.github.com";
+    settings = {
+      user = {
+        name = "Oskar Manhart";
+        email = "52569953+oskardotglobal@users.noreply.github.com";
+      };
 
-    aliases = {
-      slog = "log --graph --all --topo-order --pretty='format:%h %ai %s%d (%an)'";
-    };
-
-    extraConfig = {
+      aliases.slog = "log --graph --all --topo-order --pretty='format:%h %ai %s%d (%an)'";
       init.defaultBranch = "main";
+      pull.rebase = false;
 
       core = {
         abbrev = 8;
         eol = "lf";
         autocrlf = false;
       };
-
-      pull.rebase = false;
     };
   };
 }
