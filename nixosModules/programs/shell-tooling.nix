@@ -13,5 +13,8 @@
     yt-dlp
     file
     gnused
+    presenterm
+    tree
+    tokei
   ];
 }

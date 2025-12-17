@@ -43,10 +43,7 @@
 
   environment.systemPackages = with pkgs; [
     rustup
-
-    typst
-    tinymist
-    # (callPackage ../packages/awrit.nix { })
+    bitwarden-cli
   ];
 
   # TODO: Add rquickshare when my PR is merged
@@ -58,6 +55,8 @@
     brews = [
       "netbirdio/tap/netbird"
       "mas"
+      "cloudflared"
+      "qt6" # Ripes dynamically links to this
     ];
 
     casks = [
@@ -71,17 +70,15 @@
       "obsidian"
       "zotero"
       "calibre"
+      "syncthing-app"
 
       "jetbrains-toolbox"
       "netbirdio/tap/netbird-ui"
-
-      "orcaslicer"
     ];
 
     masApps = {
       GLKVM = 6740846845;
       Bitwarden = 1352778147;
-      Sushitrain = 6553985316;
     };
   };
 

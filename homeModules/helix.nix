@@ -1,5 +1,18 @@
 { pkgs, ... }:
 {
+  home.file."/.config/helix/languages.toml".text = ''
+    [[language]]
+    name = "nix"
+    auto-format = true
+
+    [[language]]
+    name = "c"
+    auto-format = true
+
+    # [language-server.clangd]
+    # args = ["-fallback-style={BasedOnStyle: WebKit, IndentWidth: 4}"]
+  '';
+
   programs.helix = {
     enable = true;
     defaultEditor = true;
@@ -13,13 +26,6 @@
         nixd
       ];
     };
-
-    languages.language = [
-      {
-        name = "nix";
-        auto-format = true;
-      }
-    ];
 
     settings =
       let
