@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  # Apparently, toToml doesn't support writing arrays like [[languages]], so we're stuck with this
   home.file."/.config/helix/languages.toml".text = ''
     [[language]]
     name = "nix"
@@ -9,8 +10,12 @@
     name = "c"
     auto-format = true
 
-    # [language-server.clangd]
-    # args = ["-fallback-style={BasedOnStyle: WebKit, IndentWidth: 4}"]
+    [[language]]
+    name = "python"
+    auto-format = true
+
+    [language-server.ruff.config.settings]
+    lineLength = 180
   '';
 
   programs.helix = {
@@ -20,8 +25,8 @@
     package = import ../packages/helix.nix {
       inherit pkgs;
       extraPackages = with pkgs; [
-        perl540Packages.PerlTidy
-        perlnavigator
+        ty
+        ruff
         nixfmt-rfc-style
         nixd
       ];

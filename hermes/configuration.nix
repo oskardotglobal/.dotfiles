@@ -44,6 +44,7 @@
   environment.systemPackages = with pkgs; [
     rustup
     bitwarden-cli
+    spotify-player
   ];
 
   # TODO: Add rquickshare when my PR is merged
@@ -57,6 +58,7 @@
       "mas"
       "cloudflared"
       "qt6" # Ripes dynamically links to this
+      "libusb" # for ns-usbloader
     ];
 
     casks = [
@@ -65,19 +67,25 @@
 
       "zen"
       "ungoogled-chromium"
+      "signal"
 
       "nextcloud-vfs"
       "obsidian"
       "zotero"
       "calibre"
       "syncthing-app"
+      "glkvm"
+      "anki"
 
-      "jetbrains-toolbox"
+      "prismlauncher"
+      "supertuxkart"
+
+      "intellij-idea"
       "netbirdio/tap/netbird-ui"
     ];
 
     masApps = {
-      GLKVM = 6740846845;
+      # GLKVM = 6740846845;
       Bitwarden = 1352778147;
     };
   };
