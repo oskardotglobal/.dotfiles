@@ -2,6 +2,7 @@
   flake.nixosModules' = {
     nixpkgs = ./nixpkgs.nix;
     home = ./home.nix;
+    steambox = ./steambox.nix;
 
     hardware.superdrive = ./hardware/superdrive.nix;
 
@@ -11,7 +12,6 @@
       l10n = ./system/l10n.nix;
       networking = ./system/networking.nix;
       sound = ./system/sound.nix;
-      swapfile = ./system/swapfile.nix;
     };
 
     programs = {

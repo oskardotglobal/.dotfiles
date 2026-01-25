@@ -20,6 +20,8 @@
       nixosModules'.nixpkgs
       nixosModules'.home
 
+      nixosModules'.steambox
+
       nixosModules'.programs.animalese-typing
       nixosModules'.programs.nix-dev
       nixosModules'.programs.shell-tooling
@@ -33,7 +35,6 @@
       nixosModules'.system.l10n
       nixosModules'.system.networking
       nixosModules'.system.sound
-      nixosModules'.system.swapfile
 
       inputs.home-manager.nixosModules.home-manager
       ./configuration.nix

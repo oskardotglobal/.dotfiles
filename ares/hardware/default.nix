@@ -3,5 +3,6 @@
     ./boot.nix
     ./disks.nix
     ./generated.nix
+    ./razer.nix
   ];
 }

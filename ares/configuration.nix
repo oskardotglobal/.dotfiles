@@ -18,9 +18,10 @@ in
 
   nixpkgs.overlays = [
     inputs.nur.overlays.default
-
     self.overlays.git-blame-someone-else
   ];
+
+  services.mullvad-vpn.enable = true;
 
   networking = {
     hostName = "ares";

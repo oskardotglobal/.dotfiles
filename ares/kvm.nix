@@ -1,27 +1,17 @@
-{ pkgs, lib, ... }:
-let
-  dest = "/home/oskar/.config/monitors.xml";
-in
+{ pkgs, ... }:
 {
-  systemd.tmpfiles.rules = [
-    "L+ /run/gdm/.config/monitors.xml - root - - ${dest}"
-    "C+ ${dest} - oskar - - ${./monitors.xml}"
-  ];
+  environment.etc."xdg/monitors.xml" = {
+    source = ./monitors.xml;
+    mode = "0644";
+  };
 
   services = {
-    xrdp = {
-      enable = true;
-      defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
-      /*
-        pkgs.writeShellScriptBin "xrdp-xstartup" ''
-          # cp -f ${./monitors-kvm.xml} ${dest}
-          # chown oskar ${dest}
-
-          ${pkgs.gnome-session}/bin/gnome-session "$@"
-        ''
-        |> lib.getExe;
-      */
-    };
+    /*
+      xrdp = {
+        enable = true;
+        defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
+      };
+    */
 
     gnome.gnome-remote-desktop.enable = true;
     xserver.displayManager.gdm.autoSuspend = false;
@@ -29,4 +19,6 @@ in
     displayManager.autoLogin.enable = false;
     getty.autologinUser = null;
   };
+
+  systemd.services.gnome-remote-desktop.wantedBy = [ "graphical.target" ];
 }

@@ -105,7 +105,7 @@
       <scale>1</scale>
       <monitor>
         <monitorspec>
-          <connector>HDMI-1</connector>
+          <connector>DP-1</connector>
           <vendor>AOC</vendor>
           <product>24G1WG4</product>
           <serial>0x00009e7b</serial>
@@ -113,7 +113,25 @@
         <mode>
           <width>1920</width>
           <height>1080</height>
-          <rate>144.001</rate>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
+      <x>957</x>
+      <y>1080</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
+          <connector>HDMI-1</connector>
+          <vendor>AUS</vendor>
+          <product>ROG PG248Q</product>
+          <serial>L8LMQS075392 </serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
         </mode>
       </monitor>
     </logicalmonitor>
@@ -124,7 +142,7 @@
       <primary>yes</primary>
       <monitor>
         <monitorspec>
-          <connector>DP-3</connector>
+          <connector>DP-2</connector>
           <vendor>AOC</vendor>
           <product>24G2WG3-</product>
           <serial>PIPM5JA014710</serial>
@@ -132,7 +150,7 @@
         <mode>
           <width>1920</width>
           <height>1080</height>
-          <rate>165.003</rate>
+          <rate>60.000</rate>
         </mode>
       </monitor>
     </logicalmonitor>
@@ -180,69 +198,60 @@
   <configuration>
     <layoutmode>physical</layoutmode>
     <logicalmonitor>
-      <x>1920</x>
+      <x>0</x>
       <y>0</y>
       <scale>1</scale>
       <primary>yes</primary>
       <monitor>
         <monitorspec>
-          <connector>DP-2</connector>
-          <vendor>AOC</vendor>
-          <product>24G2WG3-</product>
-          <serial>PIPM5JA014710</serial>
+          <connector>DP-1</connector>
+          <vendor>ACR</vendor>
+          <product>XZ320QU S3</product>
+          <serial>14330F8E53W01</serial>
         </monitorspec>
         <mode>
-          <width>1920</width>
-          <height>1080</height>
-          <rate>165.003</rate>
+          <width>2560</width>
+          <height>1440</height>
+          <rate>180.002</rate>
         </mode>
       </monitor>
     </logicalmonitor>
+  </configuration>
+  <configuration>
+    <layoutmode>physical</layoutmode>
     <logicalmonitor>
-      <x>0</x>
+      <x>2560</x>
       <y>0</y>
       <scale>1</scale>
       <monitor>
         <monitorspec>
           <connector>DP-1</connector>
           <vendor>AOC</vendor>
-          <product>24G1WG4</product>
-          <serial>0x00009e7b</serial>
-        </monitorspec>
-        <mode>
-          <width>1920</width>
-          <height>1080</height>
-          <rate>144.001</rate>
-        </mode>
-      </monitor>
-    </logicalmonitor>
-    <disabled>
-      <monitorspec>
-        <connector>HDMI-1</connector>
-        <vendor>AUS</vendor>
-        <product>ROG PG248Q</product>
-        <serial>L8LMQS075392 </serial>
-      </monitorspec>
-    </disabled>
-  </configuration>
-  <configuration>
-    <layoutmode>physical</layoutmode>
-    <logicalmonitor>
-      <x>1920</x>
-      <y>0</y>
-      <scale>1</scale>
-      <primary>yes</primary>
-      <monitor>
-        <monitorspec>
-          <connector>DP-2</connector>
-          <vendor>AOC</vendor>
           <product>24G2WG3-</product>
           <serial>PIPM5JA014710</serial>
         </monitorspec>
         <mode>
           <width>1920</width>
           <height>1080</height>
-          <rate>165.003</rate>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
+      <x>4480</x>
+      <y>0</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
+          <connector>DP-2</connector>
+          <vendor>AOC</vendor>
+          <product>24G1WG4</product>
+          <serial>0x00009e7b</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
         </mode>
       </monitor>
     </logicalmonitor>
@@ -250,9 +259,32 @@
       <x>0</x>
       <y>0</y>
       <scale>1</scale>
+      <primary>yes</primary>
       <monitor>
         <monitorspec>
-          <connector>HDMI-0</connector>
+          <connector>HDMI-1</connector>
+          <vendor>SAM</vendor>
+          <product>SAMSUNG</product>
+          <serial>0x01000e00</serial>
+        </monitorspec>
+        <mode>
+          <width>2560</width>
+          <height>1440</height>
+          <rate>59.951</rate>
+        </mode>
+        <colormode>bt2100</colormode>
+      </monitor>
+    </logicalmonitor>
+  </configuration>
+  <configuration>
+    <layoutmode>physical</layoutmode>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
+          <connector>DP-2</connector>
           <vendor>AOC</vendor>
           <product>24G1WG4</product>
           <serial>0x00009e7b</serial>
@@ -260,18 +292,28 @@
         <mode>
           <width>1920</width>
           <height>1080</height>
-          <rate>144.001</rate>
+          <rate>60.000</rate>
         </mode>
       </monitor>
     </logicalmonitor>
-  </configuration>
-  <configuration>
-    <layoutmode>physical</layoutmode>
     <logicalmonitor>
       <x>1920</x>
       <y>0</y>
       <scale>1</scale>
       <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>DP-1</connector>
+          <vendor>AOC</vendor>
+          <product>24G2WG3-</product>
+          <serial>PIPM5JA014710</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
       <monitor>
         <monitorspec>
           <connector>HDMI-1</connector>
@@ -286,16 +328,33 @@
         </mode>
       </monitor>
     </logicalmonitor>
+  </configuration>
+  <configuration>
+    <layoutmode>physical</layoutmode>
     <logicalmonitor>
       <x>0</x>
       <y>0</y>
       <scale>1</scale>
+      <primary>yes</primary>
       <monitor>
         <monitorspec>
           <connector>DP-1</connector>
           <vendor>AOC</vendor>
           <product>24G1WG4</product>
           <serial>0x00009e7b</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>144.001</rate>
+        </mode>
+      </monitor>
+      <monitor>
+        <monitorspec>
+          <connector>HDMI-1</connector>
+          <vendor>AUS</vendor>
+          <product>ROG PG248Q</product>
+          <serial>L8LMQS075392 </serial>
         </monitorspec>
         <mode>
           <width>1920</width>
@@ -341,6 +400,126 @@
           <width>1920</width>
           <height>1080</height>
           <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+  </configuration>
+  <configuration>
+    <layoutmode>physical</layoutmode>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
+          <connector>HDMI-1</connector>
+          <vendor>AOC</vendor>
+          <product>24G1WG4</product>
+          <serial>0x00009e7b</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>144.001</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
+      <x>1920</x>
+      <y>0</y>
+      <scale>1</scale>
+      <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>DP-3</connector>
+          <vendor>AOC</vendor>
+          <product>24G2WG3-</product>
+          <serial>PIPM5JA014710</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>165.003</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+  </configuration>
+  <configuration>
+    <layoutmode>physical</layoutmode>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
+          <connector>DP-2</connector>
+          <vendor>AOC</vendor>
+          <product>24G1WG4</product>
+          <serial>0x00009e7b</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
+      <x>1920</x>
+      <y>0</y>
+      <scale>1</scale>
+      <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>DP-1</connector>
+          <vendor>AOC</vendor>
+          <product>24G2WG3-</product>
+          <serial>PIPM5JA014710</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+  </configuration>
+  <configuration>
+    <layoutmode>physical</layoutmode>
+    <logicalmonitor>
+      <x>1920</x>
+      <y>0</y>
+      <scale>1</scale>
+      <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>DP-2</connector>
+          <vendor>AOC</vendor>
+          <product>24G2WG3-</product>
+          <serial>PIPM5JA014710</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>165.003</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
+          <connector>HDMI-0</connector>
+          <vendor>AOC</vendor>
+          <product>24G1WG4</product>
+          <serial>0x00009e7b</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>144.001</rate>
         </mode>
       </monitor>
     </logicalmonitor>
