@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  pkgs,
   ...
 }:
 {
@@ -20,6 +21,8 @@
     };
 
     nix = {
+      package = pkgs.lixPackageSets.stable.lix;
+
       # make `nix run nixpkgs#package` use the same nixpkgs as the one used by this flake.
       registry.nixpkgs.flake = config.oskardotglobal.nixpkgs;
 
@@ -33,7 +36,6 @@
         experimental-features = [
           "nix-command"
           "flakes"
-          "pipe-operators"
         ];
         trusted-users = [ "@wheel" ];
 

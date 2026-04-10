@@ -47,17 +47,15 @@
     spotify-player
   ];
 
-  # TODO: Add rquickshare when my PR is merged
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";
 
     taps = [ "netbirdio/tap" ];
     brews = [
-      "netbirdio/tap/netbird"
+      "netbird"
       "mas"
       "cloudflared"
-      "qt6" # Ripes dynamically links to this
       "libusb" # for ns-usbloader
     ];
 
@@ -65,23 +63,20 @@
       "music-decoy"
       "pearcleaner"
 
-      "zen"
-      "ungoogled-chromium"
       "signal"
+      "deltachat"
 
       "nextcloud-vfs"
       "obsidian"
       "zotero"
       "calibre"
-      "syncthing-app"
-      "glkvm"
       "anki"
 
       "prismlauncher"
       "supertuxkart"
 
       "intellij-idea"
-      "netbirdio/tap/netbird-ui"
+      "netbird-ui"
     ];
 
     masApps = {
