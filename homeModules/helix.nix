@@ -43,7 +43,15 @@
       in
       {
         theme = "xcode_dark";
-        editor.mouse = false;
+
+        editor = {
+          mouse = false;
+          file-picker.hidden = true;
+          auto-save.after-delay = {
+            enable = true;
+            timeout = 1000;
+          };
+        };
 
         keys = {
           normal = noArrows;

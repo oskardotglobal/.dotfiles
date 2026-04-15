@@ -1,7 +1,6 @@
 { pkgs, nix-jetbrains-plugins, ... }:
 with pkgs.jetbrains;
 let
-  idea = idea-ultimate;
   ideaWithPlugins =
     let
       build = name: nix-jetbrains-plugins."${idea.pname}"."${idea.version}"."${name}";
@@ -39,5 +38,5 @@ let
     |> plugins.addPlugins idea;
 in
 {
-  environment.systemPackages = [ ideaWithPlugins ];
+  environment.systemPackages = [ idea ];
 }

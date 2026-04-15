@@ -68,6 +68,7 @@ in
           "${home}/.cargo/bin"
           "${home}/.local/bin"
           "${GOPATH}/bin"
+          "${home}/.claude/local"
           "$PATH"
         ]
         |> builtins.concatStringsSep ":";
@@ -85,7 +86,7 @@ in
       vi = "hx";
 
       git-checkout-default = "git checkout $(git remote show origin | grep -Po '(?<=HEAD branch: ).+')";
-      idea = ''nohup idea-ultimate nosplash $(pwd) &>/dev/null &; disown'';
+      idea = "nohup idea-ultimate nosplash $(pwd) &>/dev/null &; disown";
     };
   };
 }

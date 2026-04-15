@@ -36,6 +36,7 @@
         experimental-features = [
           "nix-command"
           "flakes"
+          "pipe-operator"
         ];
         trusted-users = [ "@wheel" ];
 

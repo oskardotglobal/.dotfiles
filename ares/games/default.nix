@@ -17,8 +17,8 @@
     prismlauncher
     ryubing
 
-    nix-gaming.packages.${system}.osu-lazer-bin
-    nix-citizen.packages.${system}.rsi-launcher
+    # nix-gaming.packages.${system}.osu-lazer-bin
+    # nix-citizen.packages.${system}.rsi-launcher
   ];
 
   # https://wiki.starcitizen-lug.org/Performance-Tuning#zram--swap

@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   environment.etc."xdg/monitors.xml" = {
     source = ./monitors.xml;
@@ -14,7 +13,7 @@
     */
 
     gnome.gnome-remote-desktop.enable = true;
-    xserver.displayManager.gdm.autoSuspend = false;
+    displayManager.gdm.autoSuspend = false;
 
     displayManager.autoLogin.enable = false;
     getty.autologinUser = null;
