@@ -32,6 +32,7 @@
 
       nixosModules'.system.cups
       nixosModules'.system.gnome
+      nixosModules'.gnome-rdp
       nixosModules'.system.l10n
       nixosModules'.system.networking
       nixosModules'.system.sound

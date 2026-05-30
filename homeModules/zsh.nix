@@ -68,7 +68,6 @@ in
           "${home}/.cargo/bin"
           "${home}/.local/bin"
           "${GOPATH}/bin"
-          "${home}/.claude/local"
           "$PATH"
         ]
         |> builtins.concatStringsSep ":";

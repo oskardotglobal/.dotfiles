@@ -16,5 +16,6 @@
     presenterm
     tree
     tokei
+    wget
   ];
 }

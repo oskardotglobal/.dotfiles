@@ -78,7 +78,12 @@ in
       "${script}";
   };
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    enableNvidia = true;
+
+    daemon.settings.runtimes.runsc.path = pkgs.lib.getExe' pkgs.gvisor "runsc";
+  };
 
   programs = {
     animalese-typing = {

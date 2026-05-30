@@ -3,6 +3,7 @@
     nixpkgs = ./nixpkgs.nix;
     home = ./home.nix;
     steambox = ./steambox.nix;
+    gnome-rdp = ./gnome-rdp.nix;
 
     hardware.superdrive = ./hardware/superdrive.nix;
 

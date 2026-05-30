@@ -5,19 +5,20 @@
   };
 
   services = {
-    /*
-      xrdp = {
+    gnome.gnome-remote-desktop = {
+      enable = true;
+      headless = {
         enable = true;
-        defaultWindowManager = "${pkgs.gnome-session}/bin/gnome-session";
+        username = "oskar";
+        passwordFile = "/etc/secrets/rdp_password";
       };
-    */
+    };
 
-    gnome.gnome-remote-desktop.enable = true;
-    displayManager.gdm.autoSuspend = false;
+    displayManager = {
+      gdm.autoSuspend = false;
+      autoLogin.enable = false;
+    };
 
-    displayManager.autoLogin.enable = false;
     getty.autologinUser = null;
   };
-
-  systemd.services.gnome-remote-desktop.wantedBy = [ "graphical.target" ];
 }

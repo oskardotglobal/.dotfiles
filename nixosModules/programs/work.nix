@@ -9,7 +9,9 @@ let
 in
 {
   disabledModules = [ "services/networking/netbird.nix" ];
-  imports = [ (nixpkgsUnstable + "/nixos/modules/services/networking/netbird.nix") ];
+  imports = [
+    (nixpkgsUnstable + "/nixos/modules/services/networking/netbird.nix")
+  ];
 
   services.netbird = {
     enable = true;
