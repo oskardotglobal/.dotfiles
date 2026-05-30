@@ -4,6 +4,9 @@
   ...
 }:
 let
+  home = config.home.homeDirectory;
+  helix-zsh = pkgs.callPackage ../packages/helix-zsh { };
+
   theme = pkgs.writeTextFile {
     name = "oskardotglobal.zsh-theme";
     text = ''
@@ -26,9 +29,22 @@ let
     destination = "/themes/oskardotglobal.zsh-theme";
   };
 
-  home = config.home.homeDirectory;
+  helixPlugin = pkgs.runCommand "helix-zsh-omz-plugin" { } ''
+    mkdir -p $out/plugins/helix-zsh
+    ln -s ${helix-zsh}/helix-zsh.plugin.zsh $out/plugins/helix-zsh/helix-zsh.plugin.zsh
+  '';
+
+  ohmyzshCustom = pkgs.symlinkJoin {
+    name = "omz-custom";
+    paths = [
+      theme
+      helixPlugin
+    ];
+  };
 in
 {
+  home.packages = [ helix-zsh ];
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
@@ -42,16 +58,30 @@ in
 
     completionInit = ''autoload -U compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"'';
 
+    plugins = [
+      {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.8.0";
+          sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+        };
+      }
+    ];
+
     oh-my-zsh = {
       enable = true;
 
       plugins = [
         "git"
         "sudo"
+        "helix-zsh"
       ];
 
       theme = "oskardotglobal";
-      custom = "${theme}";
+      custom = "${ohmyzshCustom}";
 
       extraConfig = ''
         HYPHEN_INSENSITIVE=true
