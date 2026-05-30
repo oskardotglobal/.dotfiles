@@ -37,13 +37,11 @@
     };
   };
 
-  # TODO: why isn't this set automatically
   system.primaryUser = "oskar";
   users.users.oskar.home = "/Users/oskar";
 
   environment.systemPackages = with pkgs; [
     rustup
-    bitwarden-cli
     spotify-player
   ];
 
@@ -61,8 +59,6 @@
 
     casks = [
       "music-decoy"
-      "pearcleaner"
-
       "signal"
       "deltachat"
 
@@ -79,10 +75,7 @@
       "netbird-ui"
     ];
 
-    masApps = {
-      # GLKVM = 6740846845;
-      Bitwarden = 1352778147;
-    };
+    masApps.Bitwarden = 1352778147;
   };
 
   security.pam.services.sudo_local = {
