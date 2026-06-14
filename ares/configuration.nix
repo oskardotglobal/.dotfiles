@@ -21,8 +21,6 @@ in
     self.overlays.git-blame-someone-else
   ];
 
-  services.mullvad-vpn.enable = true;
-
   networking = {
     hostName = "ares";
 
@@ -71,7 +69,7 @@ in
         script = pkgs.writeScript "hm-${username}-pre-start" ''
           #!${pkgs.bash}/bin/bash
 
-          ${pkgs.findutils}/bin/find /home/${username}/.mozilla/firefox -type f -iname "*.${config.home-manager.backupFileExtension}" \
+          ${pkgs.findutils}/bin/find /home/${username}/.config/mozilla/firefox -type f -iname "*.${config.home-manager.backupFileExtension}" \
             | ${pkgs.findutils}/bin/xargs -i rm "{}"
         '';
       in
@@ -88,7 +86,7 @@ in
   programs = {
     animalese-typing = {
       enable = true;
-      layout = "iso-de";
+      layout = "ansi-us";
     };
 
     nh = {
@@ -100,15 +98,13 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    bun
-    nodejs_20
-    nodePackages.pnpm
+    nodejs_24
+    pnpm
 
     vesktop
     spotify-player
 
     obsidian
-    zotero
     kdePackages.kdenlive
 
     gparted

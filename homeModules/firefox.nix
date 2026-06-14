@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -34,9 +35,10 @@ in
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-devedition;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
 
-  home.file."/.mozilla/firefox/0/chrome" = {
+  home.file."${config.xdg.configHome}/mozilla/firefox/0/chrome" = {
     enable = true;
     source = theme;
     recursive = true;

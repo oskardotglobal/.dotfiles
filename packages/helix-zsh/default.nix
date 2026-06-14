@@ -3,7 +3,7 @@
   fetchFromGitHub,
   rustPlatform,
   stdenv,
-  helix,
+  helix-unwrapped,
 }:
 
 let
@@ -16,6 +16,7 @@ let
     rev = "main";
     hash = "sha256-ZbRUoKqaMfagOZFuj+csdcsV1oAOtf9s6XqRGtOcfmc=";
   };
+
 in
 rustPlatform.buildRustPackage {
   inherit pname version src;
@@ -28,7 +29,9 @@ rustPlatform.buildRustPackage {
 
   preBuild = ''
     for f in languages.toml theme.toml base16_theme.toml; do
-      ln -s ${helix.src}/$f "$NIX_BUILD_TOP/${pname}-${version}-vendor/$f"
+      for d in $NIX_BUILD_TOP/${pname}-${version}-vendor/*/; do
+        ln -s ${helix-unwrapped.src}/$f "$d$f"
+      done
     done
   '';
 
