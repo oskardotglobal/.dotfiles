@@ -78,10 +78,10 @@ in
 
   virtualisation.docker = {
     enable = true;
-    enableNvidia = true;
-
     daemon.settings.runtimes.runsc.path = pkgs.lib.getExe' pkgs.gvisor "runsc";
   };
+
+  hardware.nvidia-container-toolkit.enable = true;
 
   programs = {
     animalese-typing = {

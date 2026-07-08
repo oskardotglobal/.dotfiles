@@ -12,11 +12,11 @@ let
       rustPlatform,
       nix-update-script,
       versionCheckHook,
-      xorg,
+      libX11,
       alsa-lib-with-plugins,
       pkg-config,
       llvmPackages,
-      mold-wrapped,
+      mold,
     }:
     rustPlatform.buildRustPackage rec {
       pname = "animalese-typing";
@@ -37,13 +37,13 @@ let
       env.RUSTC_BOOTSTRAP = 1;
 
       nativeBuildInputs = [
-        mold-wrapped
+        mold
         pkg-config
         llvmPackages.libcxxClang
       ];
 
       buildInputs = [
-        xorg.libX11
+        libX11
         alsa-lib-with-plugins
       ];
 

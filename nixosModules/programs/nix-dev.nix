@@ -2,11 +2,10 @@
 {
   environment.systemPackages = with pkgs; [
     nixfmt-tree
-    nixfmt-rfc-style
+    nixfmt
 
     statix
     nixd
-    devenv
   ];
 
   programs.direnv = {

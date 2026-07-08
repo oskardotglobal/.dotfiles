@@ -27,7 +27,7 @@
       extraPackages = with pkgs; [
         ty
         ruff
-        nixfmt-rfc-style
+        nixfmt
         nixd
       ];
     };

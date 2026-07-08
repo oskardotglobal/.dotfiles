@@ -4,6 +4,7 @@
   rustPlatform,
   stdenv,
   helix-unwrapped,
+  wl-clipboard,
 }:
 
 let
@@ -41,7 +42,7 @@ rustPlatform.buildRustPackage {
 
     ${lib.optionalString (!stdenv.isDarwin) ''
       substituteInPlace $out/helix-zsh.plugin.zsh \
-        --replace-fail "pbcopy" "xclip -selection clipboard"
+        --replace-fail "pbcopy" "${wl-clipboard}/bin/wl-copy"
     ''}
   '';
 
